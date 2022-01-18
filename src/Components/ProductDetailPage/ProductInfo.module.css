@@ -1,0 +1,32 @@
+.bigcontainer {
+  display: flex;
+  border: 1px solid red;
+  width: 60%;
+  margin-top: 2%;
+  margin-left: 1%;
+}
+.leftcontainer {
+  width: 50%;
+  border: 1px solid green;
+}
+.rightcontainer {
+  width: 50%;
+  border: 1px solid black;
+}
+.gift {
+  display: flex;
+  border: 1px solid red;
+}
+.takegift {
+  width: 20%;
+  border: 1px solid red;
+}
+.opt {
+  width: 60%;
+  border: 1px solid black;
+  text-align: left;
+}
+.giftpak {
+  width: 100%;
+  margin-top: 20%;
+}
