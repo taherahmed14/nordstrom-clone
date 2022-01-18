@@ -76,7 +76,7 @@ export const Login = () => {
                 <button className='signInButton'>Sign in</button>
 
                 <div className='staticTextTwo'>Dont have an account? 
-                    <Link to={"*"}>Register</Link>
+                    <Link to={"/register"}>Register</Link>
                 </div>
 
             </form>

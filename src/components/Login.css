@@ -33,6 +33,12 @@
 .staticTextOne {
     font-size: 24px;
     color: rgb(63, 60, 60);
+    padding-bottom: 20px;
+}
+
+.staticTextTwo {
+    padding-left: 52px;
+    padding-right: 50px;
 }
 
 .staticTextThree {
@@ -48,3 +54,20 @@
     background-color: black;
     cursor: pointer;
 }
+
+.inforCard {
+    text-align: left;
+    font-size: 12px;
+    color: rgb(75, 73, 73);
+    padding: 5px 10px 5px 50px;
+    display: flex;
+}
+
+.inforCard img {
+    height: 20px;
+}
+
+.inforCard div {
+    padding: 3px 3px 3px 8px;
+}
+

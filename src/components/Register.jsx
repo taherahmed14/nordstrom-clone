@@ -35,12 +35,37 @@ export const Register = () => {
         <div>
     
             <form className='form'>
-                <div className='staticTextOne'>Welcome back!</div>
-                <div className='staticTextTwo'>Sign in with the same info</div>
+                <div className='staticTextOne'>Create Account</div>
+
+                <div className='inforCard'>
+                    <img src='credit-card.png' />
+                    <div>Check out faster</div>
+                </div>
+
+                <div className='inforCard'>
+                    <img src='delivery-truck.png' />
+                    <div>Track orders easily</div>
+                </div>
+
+                <div className='inforCard'>
+                    <img src='cloud.png' />
+                    <div>Use one sign-in across our brands</div>
+                </div>
+
 
                 <FormControl size="medium" sx={{ m: 'auto', mt: '20px', mb: '10px', width: '350px' }} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }} >Email</InputLabel>
                         <OutlinedInput label="Email" sx={{ fontSize: '12px' }} />
+                </FormControl>
+
+                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }} >First name</InputLabel>
+                        <OutlinedInput label="First name" sx={{ fontSize: '12px' }} />
+                </FormControl>
+
+                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined">
+                    <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }} >Last name</InputLabel>
+                        <OutlinedInput label="Last name" sx={{ fontSize: '12px' }} />
                 </FormControl>
                 
                 <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined">
@@ -67,16 +92,12 @@ export const Register = () => {
                         />
                 </FormControl>
 
-                <div className='staticTextThree'>Forgot password?</div>
-                <div className='staticTextFour'>
-                    <input className='checkBox' type='checkbox' />
-                    <label> Keep me signed in.</label>
-                </div>
+                <div className='staticTextTwo'>By creating an account, you agree to our Privacy Policy and Terms & Conditions.</div>
                  
-                <button className='signInButton'>Sign in</button>
+                <button className='signInButton'>Create Account</button>
 
-                <div className='staticTextTwo'>Dont have an account? 
-                    <Link to={"*"}>Register</Link>
+                <div className='staticTextTwo'>Already have an account? 
+                    <Link to={"/login"}>Login here</Link>
                 </div>
 
             </form>
