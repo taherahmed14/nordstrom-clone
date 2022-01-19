@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
     const product = await Product.findById(req.params.id)
     return res.status(200).send(product)
   } catch (e) {
-    return res.status(500).json({ status: 'Failed', message: e.message })
+    return res.status(500).json({ status: 'Failled', message: e.message })
   }
 })
 

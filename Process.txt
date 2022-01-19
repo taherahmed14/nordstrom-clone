@@ -1,9 +1,10 @@
 ## For Backend Process 
 
-what  npm package to be install 
 
+what  npm package to be install 
 npm i mongoose
 
+cd backend
 How to Run: npm run server
 
 ## For frontend
@@ -11,9 +12,10 @@ How to Run: npm run server
 what  npm package to be install
 npm i emailjs
 npm i thunk
+npm i redux-thunk
 npm i redux-devtools-extension
 npm i axios
-
 npm install http-proxy-middleware --save
 
+cd backend
 how to Run : npm start

@@ -20,7 +20,6 @@ export const getProducts = () => async(dispatch) =>{
     await fetch('http://localhost:4500/products/')
      .then((response) => response.json())
      .then((data) =>{
-         console.log("Data" ,data);
         dispatch({ 
                 type: ALL_PRODUCT_SUCCESS,
                 payload:data
@@ -43,12 +42,11 @@ export const getProductsDetails = (id) => async(dispatch) =>{
         dispatch({ type: PRODUCT_DETAILS_LOADING});
        
        await fetch(`http://localhost:4500/products/${id}`)
-        // .then((response) => response.json())
+        .then((response) => response.json())
         .then((data) =>{
-           console.log("Data by id" , data)
            dispatch({ 
                    type: PRODUCT_DETAILS_SUCCESS,
-                   payload:data.product
+                   payload:data
               })
           }
        )
