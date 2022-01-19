@@ -9,26 +9,19 @@ import {ProductDetails} from './components/Products/ProductDetails';
 import { useEffect } from 'react';
 import { useDispatch ,useSelector } from 'react-redux';
 
-import {getProducts} from './Features/Products/action'
+import {getProducts} from './Features/Product/action'
 
 function App() {
-  
-   const dispatch = useDispatch();
-
-   async function getUser() {  
-    await fetch('http://localhost:4500/products/')
-     .then((response) => response.json())
-     .then((data) =>dispatch(getProducts(data)))
-   }
-  
+   
+  const dispatch = useDispatch();
   useEffect(() => {
-    getUser()
-  },[]);
+    dispatch(getProducts())
+  },[])
 
-  const { products } = useSelector((state) => ({
-    products: state.productsState.products,
+   const { products } = useSelector((state) => ({
+        products: state.productsState.products,
    }));
-
+  
   return (
     <div className="App">
       <Routes>

@@ -5,28 +5,18 @@ import { getProductsDetails } from '../../Features/Products/action';
 import { useParams } from 'react-router-dom';
 
 export const ProductDetails = () => {
+
     const dispatch = useDispatch();
-    const { id } = useParams();
-    // console.log(id)
-    let dd = {};
-    async function getProductDetails() {
-        await fetch(`http://localhost:4500/products/${id}`)
-            .then((response) => response.json())
-            .then((data) =>
-                dispatch(getProductsDetails(data)
-                    // d = data;
-                ))
-    }
+    const id = useParams();
 
-    // useEffect(() => {
-    //     getProductDetails()
-    // }, []);
+    useEffect(() => {
+        dispatch(getProductsDetails(id))
+    }, [])
 
-
-    const product = useSelector((state) => state.productDetailsState.product)
-
+    const product = useSelector((state) => state.productsDetailState.product)
+    console.log("Product", product);
     return <div>
-        ProductDetails
-        {product.name}
+        <span>ProductDetails</span>
+        {/* {product.name} */}
     </div>;
 };
