@@ -8,14 +8,25 @@ export const ProductDetails = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
     // console.log(id)
+    let dd = {};
+    async function getProductDetails() {
+        await fetch(`http://localhost:4500/products/${id}`)
+            .then((response) => response.json())
+            .then((data) =>
+                dispatch(getProductsDetails(data)
+                    // d = data;
+                ))
+    }
+
+    // useEffect(() => {
+    //     getProductDetails()
+    // }, []);
+
 
     const product = useSelector((state) => state.productDetailsState.product)
-    useEffect(() => {
-        dispatch(getProductsDetails(id));
-    }, [dispatch, id]);
 
     return <div>
         ProductDetails
-        {/* {product.name} */}
+        {product.name}
     </div>;
 };

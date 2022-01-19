@@ -24,7 +24,7 @@ export const productReducer = ( state = initialState, {type,payload}) =>{
              
               loading : false,
               products : payload,
-              productsCount : payload 
+           
         }
         case ALL_PRODUCT_FAIL : 
         return{
@@ -46,7 +46,7 @@ export const productReducer = ( state = initialState, {type,payload}) =>{
 }
 
 
-export const productDetailsReducer = ( state = {product:{} }, {type,payload}) =>{
+export const productDetailsReducer = ( state = {products:{} }, {type,payload}) =>{
      
     switch(type){
         case PRODUCT_DETAILS_REQUEST:
