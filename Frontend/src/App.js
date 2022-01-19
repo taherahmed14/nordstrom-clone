@@ -4,6 +4,7 @@ import { SendOTP } from './components/Email/Form';
 import { Login } from './components/Login';
 import { Register } from "./components/Register";
 import { OTPpage } from './components/OTPpage';
+import { OrderConfirm } from './components/Acknowldegment';
 
 function App() {
   return (
@@ -13,8 +14,8 @@ function App() {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/verification" element={<SendOTP />}></Route>
         <Route path="/OTP" element={<OTPpage />}></Route>
+        <Route path="/orderConfirm" element={<OrderConfirm />}></Route>
       </Routes>
-      hi
     </div>
   );
 }
