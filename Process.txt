@@ -16,6 +16,7 @@ npm i redux-thunk
 npm i redux-devtools-extension
 npm i axios
 npm install http-proxy-middleware --save
+npm i otp-input-react
 
 cd backend
 how to Run : npm start

@@ -1,0 +1,36 @@
+.successContainer {
+    margin-top: 100px;
+    display: flex;
+    padding: 100px;
+}
+
+.sucLeftBox {
+    width: 50%; 
+}
+
+.sucRightBox {
+    width: 50%;
+}
+
+.titleOne {
+    font-size: 40px;
+    padding: 20px;
+}
+
+.titleTwo {
+    font-size: 18px;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+.continueShpButton {
+    padding: 14px 70px 14px 70px;
+    background-color: black;
+    border: none;
+    color: white;
+    margin: auto;
+    margin-top: 60px;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}

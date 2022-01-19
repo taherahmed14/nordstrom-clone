@@ -19,10 +19,10 @@ function App() {
         <Route path="/verification" element={<SendOTP />}></Route>
         <Route path="/OTP" element={<OTPpage />}></Route>
         <Route path="/orderConfirm" element={<OrderConfirm />}></Route>
+
         <Route path ="/products" element ={<Products/>}> </Route>
         <Route path ="/products/:id" element ={<ProductDetails/>}> </Route>
       </Routes>
-
     </div>
   );
 }
