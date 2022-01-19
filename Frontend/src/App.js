@@ -15,8 +15,7 @@ function App() {
         <Route path="/verification" element={<SendOTP />}></Route>
         <Route path="/OTP" element={<OTPpage />}></Route>
         <Route path="/orderConfirm" element={<OrderConfirm />}></Route>
-      </Routes>
-      //Hi 
+      </Routes> 
     </div>
   );
 }
