@@ -10,3 +10,10 @@ How to Run: npm run server
 
 what  npm package to be install
 npm i emailjs
+npm i thunk
+npm i redux-devtools-extension
+npm i axios
+
+npm install http-proxy-middleware --save
+
+how to Run : npm start
