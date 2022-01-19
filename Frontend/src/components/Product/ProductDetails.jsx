@@ -11,18 +11,36 @@ export const ProductDetails = () => {
 
     useEffect(() => {
         dispatch(getProductsDetails(id))
-    }, [])
+    }, [dispatch, id])
 
-    const { loading, product } = useSelector((state) => ({
+    // const { loading, product } = useSelector((state) => state.productsDetailState);
+
+    const { product } = useSelector((state) => ({
         product: state.productsDetailState.product,
-        loading: state.ProductDetailsState.loading
-    }));
+    }), function (prev, cur) {
+        if (prev.product === cur.product) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    });
 
-    console.log("Product", product);
+    console.log("ProductDetails", product);
+    var objA = {};
+    var objB = new Object;
+    var objC = {};
+
+    objC.toString = function () { return "objC" };
+
+    alert(objA); // [object Object]
+    alert(objB); // [object Object]
+    alert(objC); // objC
+
+    // console.log("ProductDetailsName", product.name);
 
     return <div>
         <span>ProductDetails</span>
-        {/* {product.name} - {product.price} - {product.brand} - {product.rating} */}
 
     </div>;
 };

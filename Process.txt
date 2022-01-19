@@ -10,13 +10,16 @@ How to Run: npm run server
 ## For frontend
 
 what  npm package to be install
+
+npm i axios
 npm i emailjs
+npm i http-proxy-middleware --save
+npm i otp-input-react
 npm i thunk
 npm i redux-thunk
 npm i redux-devtools-extension
-npm i axios
-npm install http-proxy-middleware --save
-npm i otp-input-react
+
+
 
 cd backend
 how to Run : npm start
