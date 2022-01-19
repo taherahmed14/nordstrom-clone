@@ -12,6 +12,7 @@ import { useDispatch ,useSelector } from 'react-redux';
 import {getProducts} from './Features/Products/action'
 
 function App() {
+  
    const dispatch = useDispatch();
 
    async function getUser() {  
