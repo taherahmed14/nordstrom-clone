@@ -59,7 +59,21 @@ export const getProductsDetails = (id) => async(dispatch) =>{
              })
          }
 
+
+
 }
+
+export const getData = () => (dispatch) => {
+    dispatch(getTodoLoading());
+    fetch("http://localhost:3002/todos")
+    .then((d) => d.json())
+    .then((data) => {
+        dispatch(getTodoSuccess(data));
+    })
+    .catch((err) => {
+        dispatch(getTodoError(err));
+    });
+};
 
 export const clearError = () => async (dispatch) => {
    dispatch({
