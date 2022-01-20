@@ -28,8 +28,8 @@ export const ProductDetails = () => {
 
     console.log("ProductDetails", product);
     var objA = {};
-    var objB = new Object;
-    var objC = {};
+    // var objB = new Object;
+    // var objC = {};
 
     objC.toString = function () { return "objC" };
 
