@@ -1,31 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getProducts } from '../../Features/Product/action';
+import { getproductsLoading, getproductsSuccess, productsDetailsFail } from '../../Features/Product/action';
 
 export const Products = () => {
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getProducts())
-    }, [])
+
+    // useEffect(() => {
+    //     dispatch(getProducts())
+    // }, [])
 
     // const { products } = useSelector((state) => ({
     //     products: state.productsState.products,
-    // }));
+    // }), function (prev, cur) {
+    //     if (prev.products === cur.products) {
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // });
 
-    const { products } = useSelector((state) => ({
-        products: state.productsState.products,
-    }), function (prev, cur) {
-        if (prev.products === cur.products) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    });
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        getData()
+    }, [dispatch])
+
+
+    const getData = () => {
+        dispatch(getproductsLoading());
+        fetch('http://localhost:4500/products')
+            .then((response) => response.json())
+            .then((data) => {
+                dispatch(getproductsSuccess(data))
+                setProducts(data);
+            })
+            .catch((err) => {
+                dispatch(productsDetailsFail(err));
+            });
+    };
+
 
 
     return <div>
