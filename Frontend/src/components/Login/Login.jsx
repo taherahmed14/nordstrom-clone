@@ -16,6 +16,7 @@ export const Login = () => {
 
     const [form, setForm] = useState({});
     const [user, setUser] = useState([]);
+    const [logStatus, setStatus] = useState(false);
 
     const { register } = useSelector((state) => ({
         register: state.registerState.register,
@@ -53,7 +54,12 @@ export const Login = () => {
         dispatch(loginUserLoading());
         fetch("http://localhost:4500/login", {
             method: "POST",
-            body: JSON.stringify(user),
+            body: JSON.stringify({
+                email: form.email,
+                password: form.password,
+                otp: Math.floor(1000 + Math.random() * 9000),
+                first_name: user[0].first_name,
+            }),
             headers: {
                 "Content-Type": "application/json",
             }
@@ -77,6 +83,7 @@ export const Login = () => {
         }
         else{
             postLoginData();
+            setStatus(true);
         }
     };
 
@@ -114,7 +121,7 @@ export const Login = () => {
         event.preventDefault();
     };
 
-    if(userData.length === 1) {
+    if(logStatus) {
         return <Navigate to={"/"} />
     }
 
