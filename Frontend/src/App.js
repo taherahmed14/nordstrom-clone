@@ -21,6 +21,7 @@ function App() {
         <Route path="/orderConfirm" element={<OrderConfirm />}></Route>
 
         <Route path ="/products" element ={<Products/>}> </Route>
+        <Route path="/products/:keyword" component={Products} />
         <Route path ="/products/:id" element ={<ProductDetails/>}> </Route>
       </Routes>
     </div>

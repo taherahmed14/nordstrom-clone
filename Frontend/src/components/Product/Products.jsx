@@ -1,26 +1,58 @@
 import React from 'react';
+import "./Products.css";
+import { ProductCard } from './ProductCard';
+
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactStars from "react-rating-stars-component";
 import Loader from '../Loader/Loader';
+import Typography from "@material-ui/core/Typography";
+import Slider from "@material-ui/core/Slider";
+import { useParams } from 'react-router-dom';
+import Pagination from "react-js-pagination";
+
 
 import { getproductsLoading, getproductsSuccess, productsDetailsFail } from '../../Features/Product/action';
+
+const categories = [
+    "Accessories",
+    "Beauty %26 Grooming",
+    "Clothing",
+    "Home",
+    "Shoes"
+];
+
 
 export const Products = () => {
 
     const dispatch = useDispatch();
-
     const [products, setProducts] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [price, setPrice] = useState([0, 4000]);
+    const [category, setCategory] = useState("");
+    // const [ratings, setRatings] = useState(0);
+    // const [keywords, setKeywords] = useState("");
 
-    useEffect(() => {
-        getData()
-    }, [dispatch])
+    const { loading, filteredProductsCount, resultPerPage, productsCount } = useSelector((state) => state.productsState)
+
+    // const { keyword } = useParams();
+    // console.log("keyword", keyword);
+
+    const priceHandler = (event, newPrice) => { setPrice(newPrice); };
+
+    const setCurrentPageNo = (e) => { setCurrentPage(e); };
 
 
     const getData = () => {
         dispatch(getproductsLoading());
-        fetch('http://localhost:4500/products')
+        let link = `http://localhost:4500/products?page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+
+        if (category) {
+            link = `http://localhost:4500/products?keyword=${keywords}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
+        }
+
+        fetch(link)
             .then((response) => response.json())
             .then((data) => {
                 dispatch(getproductsSuccess(data))
@@ -31,42 +63,68 @@ export const Products = () => {
             });
     };
 
-    const { loading } = useSelector((state) => state.productsState)
-    // console.log("Loading", loading);
+    let count = filteredProductsCount;
 
-    const options = {
-        edit: false,
-        color: "rgba(20,20,20,0.2)",
-        activeColor: "tomato",
-        size: window.innerWidth < 600 ? 20 : 25,
-        value: 3.5,
-        isHalf: true,
-    };
+    useEffect(() => {
+        getData()
+    }, [dispatch, keyword, currentPage, price, category])
 
     return <div>
         {loading ? (
             <Loader />
         ) : (
             <div>
-                <h1>Products</h1>
-                {products && products.map((product, idx) =>
-                    <div key={idx}>
-                        <table >
-                            <tbody>
-                                <tr>
-                                    <td><Link to={`/products/${product._id} `} >{product.name}</Link></td>
-                                    <td>{product.price}</td>
-                                    {/* <td><img src={product.images} alt={product.name}></img></td> */}
-                                    <td>{product.stock}</td>
-                                    <td>{product.rating}</td>
-                                    <td> <ReactStars {...options} /> {" "}</td>
-                                    <td>{product.numOfReviews}</td>
-                                </tr>
+                <h1>Products ({count})</h1>
 
-                            </tbody>
-                        </table>
+                <div className="filterBox">
+                    <Typography>Price</Typography>
+                    <Slider
+                        value={price}
+                        onChange={priceHandler}
+                        valueLabelDisplay="auto"
+                        aria-labelledby="range-slider"
+                        min={1500}
+                        max={3000}
+                    />
+
+                    <Typography>Product Type</Typography>
+                    <ul className="categoryBox">
+                        {categories.map((category) => (
+                            <li
+                                className="category-link"
+                                key={category}
+                                onClick={() => setCategory(category)}
+                            >
+                                {category}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div>
+                    {products &&
+                        products.map((product) => (
+                            <ProductCard key={product._id} product={product} />
+                        ))}
+                </div>
+
+                {resultPerPage < productsCount && (
+                    <div className="paginationBox">
+                        <Pagination
+                            activePage={currentPage}
+                            itemsCountPerPage={resultPerPage}
+                            totalItemsCount={productsCount}
+                            onChange={setCurrentPageNo}
+                            nextPageText="Next"
+                            prevPageText="Prev"
+                            firstPageText="1st"
+                            lastPageText="Last"
+                            itemClass="page-item"
+                            linkClass="page-link"
+                            activeClass="pageItemActive"
+                            activeLinkClass="pageLinkActive"
+                        />
                     </div>
-
                 )}
             </div>
         )}
