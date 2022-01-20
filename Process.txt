@@ -21,5 +21,5 @@ npm i redux-devtools-extension
 
 
 
-cd backend
+cd frontend
 how to Run : npm start

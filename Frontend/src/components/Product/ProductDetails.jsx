@@ -1,46 +1,45 @@
 import React from 'react';
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { getProductsDetails } from '../../Features/Product/action';
+import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { productsDetailsLoading, productsDetailsSuccess, productsDetailsFail } from '../../Features/Product/action';
 import { useParams } from 'react-router-dom';
 
 export const ProductDetails = () => {
 
     const dispatch = useDispatch();
     const { id } = useParams();
+    const [details, setDetails] = useState({});
 
     useEffect(() => {
-        dispatch(getProductsDetails(id))
+        getData()
     }, [dispatch, id])
 
-    // const { loading, product } = useSelector((state) => state.productsDetailState);
 
-    const { product } = useSelector((state) => ({
-        product: state.productsDetailState.product,
-    }), function (prev, cur) {
-        if (prev.product === cur.product) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    });
-
-    console.log("ProductDetails", product);
-    var objA = {};
-    // var objB = new Object;
-    // var objC = {};
-
-    objC.toString = function () { return "objC" };
-
-    alert(objA); // [object Object]
-    alert(objB); // [object Object]
-    alert(objC); // objC
-
-    // console.log("ProductDetailsName", product.name);
+    const getData = () => {
+        dispatch(productsDetailsLoading());
+        fetch(`http://localhost:4500/products/${id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                dispatch(productsDetailsSuccess(data))
+                setDetails(data);
+            })
+            .catch((err) => {
+                dispatch(productsDetailsFail(err));
+            });
+    };
 
     return <div>
         <span>ProductDetails</span>
+        <table>
+            <tbody>
+                <tr>
+                    <td>{details._id}</td>
+                    <td>{details.name}</td>
+                    <td>{details.description}</td>
+                    <td>{details.price}</td>
 
+                </tr>
+            </tbody>
+        </table>
     </div>;
 };
