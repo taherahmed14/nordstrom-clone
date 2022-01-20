@@ -1,16 +1,13 @@
 const { Schema, model } = require('mongoose')
 
-const productSchema = new Schema(
+const cartSchema = new Schema(
   {
+    brand: { type: String, required: true },
     name: { type: String, required: true },
     price: { type: Number, required: true },
-    rating: { type: String, required: true },
-    product_type: { type: String, required: true },
-    brand: { type: String, required: true },
-    img1: { type: String, required: true },
-    img2: { type: String, required: true },
-    img3: { type: String, required: true },
-    img4: { type: String, required: true },
+
+    images: [{ type: String, required: true }],
+
     description: { type: String, required: true },
   },
   {
@@ -19,4 +16,4 @@ const productSchema = new Schema(
   },
 )
 
-module.exports = model('cart', productSchema)
+module.exports = model('cart', cartSchema)
