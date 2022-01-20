@@ -8,8 +8,21 @@ import { Visibility } from '@mui/icons-material';
 import { VisibilityOff } from '@mui/icons-material';
 import "./Login.css";
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 
 export const Login = () => {
+
+    const { loading, register, error } = useSelector((state) => ({
+        loading: state.registerState.loading,
+        register: state.registerState.register,
+        error: state.registerState.error,
+    }));
+
+    const dispatch = useDispatch();
+
+    const handleRegister = () => {
+        dispatch(registerSuccess(false));
+    }
 
     const [values, setValues] = React.useState({
         password: '',
@@ -30,6 +43,10 @@ export const Login = () => {
     const handleMouseDownPassword = (event) => {
     event.preventDefault();
     };
+
+    // if(!register) {
+    //     return <Navigate to={"/register"} />
+    // }
 
     return (
         <div>
@@ -76,7 +93,7 @@ export const Login = () => {
                 <button className='signInButton'>Sign in</button>
 
                 <div className='staticTextTwo'>Dont have an account? 
-                    <Link to={"/register"}>Register</Link>
+                    <Link to={"/register"} onClick={handleRegister}>Register</Link>
                 </div>
 
             </form>

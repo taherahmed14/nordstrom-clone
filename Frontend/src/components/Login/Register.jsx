@@ -7,12 +7,26 @@ import { FormControl } from '@mui/material';
 import { Visibility } from '@mui/icons-material';
 import { VisibilityOff } from '@mui/icons-material';
 import "./Login.css";
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { registerError, registerLoading, registerSuccess } from '../../Features/Register/actions';
 
 export const Register = () => {
 
     const [form, setForm] = useState({});
+    const [email, setEmail] = useState(true);
+    const [fName, setfName] = useState(true);
+    const [lName, setlName] = useState(true);
+    const [password, setPassword] = useState(true);
+
+    const { loading, register, error } = useSelector((state) => ({
+        loading: state.registerState.loading,
+        register: state.registerState.register,
+        error: state.registerState.error,
+    }));
+
+    const dispatch = useDispatch();
 
     const handlerRegisterChange = ({target: {name, value}}) => {
         setForm({
@@ -23,24 +37,34 @@ export const Register = () => {
 
     const handleSubmit = () => {
         if(!form.email.match('[a-z0-9]+@[a-z]+\.[a-z]{2,3}')){
-            alert("Enter valid Email Id");
+            setEmail(false);
         }
         else if(form.first_name.length < 1) {
-            alert("Enter valid First name");
+            setfName(false);
         }
-        
-        // fetch("http://localhost:4500/register", {
-        //     method: "POST",
-        //     body: JSON.stringify(form),
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     }
-        // })
-        // .then((d) => d.json())
-        // .then((res) => {
-        //     console.log(res);
-        // })
-        // .catch((err) => { console.log(err) });
+        else if(form.last_name.length < 1) {
+            setlName(false);
+        }
+        else if(form.password.length < 6) {
+            setPassword(false);
+        }
+        else {
+            dispatch(registerLoading());
+            fetch("http://localhost:4500/register", {
+            method: "POST",
+            body: JSON.stringify(form),
+            headers: {
+                "Content-Type": "application/json",
+            }
+            })
+            .then((d) => d.json())
+            .then((res) => {
+                dispatch(registerSuccess(true));
+            })
+            .catch((err) => { 
+                dispatch(registerError());
+            });
+        }
     }
 
     const [values, setValues] = React.useState({
@@ -64,6 +88,10 @@ export const Register = () => {
     event.preventDefault();
     };
 
+    if(register) {
+        return <Navigate to={"/login"} />
+    }
+
     return (
         <div className='form'>
     
@@ -86,22 +114,26 @@ export const Register = () => {
                 </div>
 
 
-                <FormControl size="medium" sx={{ m: 'auto', mt: '20px', mb: '10px', width: '350px' }} variant="outlined">
-                    <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }} >Email</InputLabel>
-                        <OutlinedInput label="Email" sx={{ fontSize: '12px' }} name="email" onChange={handlerRegisterChange} />
+                <FormControl size="medium" sx={{ m: 'auto', mt: '20px', mb: '10px', width: '350px' }} variant="outlined" 
+                error = {email === false}>
+                    <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }}>Email</InputLabel>
+                        <OutlinedInput label="Email" sx={{ fontSize: '12px' }} name="email" onChange={handlerRegisterChange}/>
                 </FormControl>
 
-                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined">
+                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined"
+                error = {fName === false}>
                     <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }} >First name</InputLabel>
                         <OutlinedInput label="First name" sx={{ fontSize: '12px' }} name="first_name" onChange={handlerRegisterChange} />
                 </FormControl>
 
-                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined">
+                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined"
+                error = {lName === false}>
                     <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }} >Last name</InputLabel>
                         <OutlinedInput label="Last name" sx={{ fontSize: '12px' }} name="last_name" onChange={handlerRegisterChange} />
                 </FormControl>
                 
-                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined">
+                <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined"
+                error = {password === false}>
                     <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }}>Password</InputLabel>
                         <OutlinedInput sx={{ fontSize: '12px' }}
                             id="outlined-adornment-password"
