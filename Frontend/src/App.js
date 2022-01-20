@@ -2,10 +2,10 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import {Home} from './components/Home/Home';
 import { SendOTP } from './components/Email/Form';
-import { Login } from './components/Login';
-import { Register } from "./components/Register";
-import { OTPpage } from './components/OTPpage';
-import { OrderConfirm } from './components/Acknowldegment';
+import { Login } from './components/Login/Login';
+import { Register } from './components/Login/Register';
+import { OTPpage } from './components/OTP/OTPpage';
+import { OrderConfirm } from './components/OrderConfirm/Acknowldegment';
 import {Products} from './components/Product/Products';
 import {ProductDetails} from './components/Product/ProductDetails';
 
