@@ -9,21 +9,6 @@ export const Products = () => {
 
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     dispatch(getProducts())
-    // }, [])
-
-    // const { products } = useSelector((state) => ({
-    //     products: state.productsState.products,
-    // }), function (prev, cur) {
-    //     if (prev.products === cur.products) {
-    //         return true;
-    //     }
-    //     else {
-    //         return false;
-    //     }
-    // });
-
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -37,23 +22,39 @@ export const Products = () => {
             .then((response) => response.json())
             .then((data) => {
                 dispatch(getproductsSuccess(data))
-                setProducts(data);
+                setProducts(data.products);
             })
             .catch((err) => {
                 dispatch(productsDetailsFail(err));
             });
     };
 
-
-
     return <div>
         <h1>Hello</h1>
+
         {products && products.map((product, idx) =>
             <div key={idx}>
                 <Link to={`/products/${product._id} `} > {product.name}</Link>
             </div>
 
         )}
+
+        {products && products.map((product, idx) =>
+            <div key={idx}>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>{product.name}</td>
+                            <td>{product.price}</td>
+                            <td><img src={product.images} alt={product.name}></img></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        )}
+
 
     </div>;
 };

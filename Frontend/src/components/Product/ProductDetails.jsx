@@ -27,16 +27,22 @@ export const ProductDetails = () => {
                 dispatch(productsDetailsFail(err));
             });
     };
+    console.log("detail", details);
 
     return <div>
         <span>ProductDetails</span>
         <table>
             <tbody>
                 <tr>
-                    <td>{details._id}</td>
                     <td>{details.name}</td>
                     <td>{details.description}</td>
                     <td>{details.price}</td>
+                    {details.images && details.images.map((image) => (
+                        <td>
+                            <img src={image} alt={details.name}></img>
+                        </td>
+
+                    ))}
 
                 </tr>
             </tbody>
