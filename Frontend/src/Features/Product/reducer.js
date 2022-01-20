@@ -12,7 +12,7 @@ from "./actionType"
 const initialState = { 
     products: [], 
     loading: true,
-    productsCount: 0
+    productsCount: 0,
 };
 
 export const productReducer = ( state = initialState, action) =>{
@@ -22,7 +22,8 @@ export const productReducer = ( state = initialState, action) =>{
         return{
                 loading : true,
                 products : [],
-                productsCount: 0
+                productsCount: 0,
+                
         }
         case ALL_PRODUCT_SUCCESS : 
         return{  
