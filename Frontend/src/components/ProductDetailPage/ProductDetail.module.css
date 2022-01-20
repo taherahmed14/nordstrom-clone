@@ -1,0 +1,49 @@
+body {
+  font-family: Brandon Text, Arial, sans-serif;
+}
+
+.bigcontainer {
+  width: 26.48%;
+}
+.proddesc {
+  width: 100%;
+  margin-top: 2%;
+}
+.prodn {
+  font-weight: 400;
+  color: #393936;
+  line-height: 1.4;
+  font-size: 1.2rem;
+  margin-top: -0.91%;
+}
+.skim {
+  font-size: 0.8rem;
+  color: #999;
+  line-height: 1.4;
+  margin-top: -2.5%;
+}
+.regular {
+  color: #999;
+  margin-top: -2%;
+  line-height: 1.4;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+.money {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.proddet {
+  color: #393936;
+  line-height: 1.4;
+  font-size: 00.8rem;
+}
+.btn:hover {
+  background-color: #333;
+}
+.colorpal {
+  margin-top: 6%;
+}
+.colorpicker {
+  display: flex;
+}
