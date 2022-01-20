@@ -20,9 +20,9 @@ function App() {
         <Route path="/OTP" element={<OTPpage />}></Route>
         <Route path="/orderConfirm" element={<OrderConfirm />}></Route>
 
-        <Route path ="/products" element ={<Products/>}> </Route>
+        <Route exact path ="/products" element ={<Products/>}> </Route>
         <Route path="/products/:keyword" component={Products} />
-        <Route path ="/products/:id" element ={<ProductDetails/>}> </Route>
+        <Route exact path ="/product/:id" element ={<ProductDetails/>}> </Route>
       </Routes>
     </div>
   );

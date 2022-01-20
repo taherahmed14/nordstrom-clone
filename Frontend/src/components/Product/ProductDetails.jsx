@@ -30,7 +30,6 @@ export const ProductDetails = () => {
             });
     };
     const { loading } = useSelector((state) => state.productsDetailState)
-    console.log("Loading", loading);
 
     return <div>
         {loading ? (
@@ -44,6 +43,7 @@ export const ProductDetails = () => {
                             <td>{details.name}</td>
                             <td>{details.description}</td>
                             <td>{details.price}</td>
+
                             {details.images && details.images.map((image) => (
                                 <td>
                                     <img src={image} alt={details.name}></img>

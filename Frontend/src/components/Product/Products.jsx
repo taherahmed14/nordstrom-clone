@@ -23,6 +23,20 @@ const categories = [
     "Shoes"
 ];
 
+const genders = [
+    "Boys",
+    "Girls",
+    "Men",
+    "Unisex",
+    "Women"
+];
+
+const brands = [
+    "Adidas",
+    "Relaince",
+    "apple"
+];
+
 
 export const Products = () => {
 
@@ -31,25 +45,30 @@ export const Products = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [price, setPrice] = useState([0, 4000]);
     const [category, setCategory] = useState("");
-    // const [ratings, setRatings] = useState(0);
-    // const [keywords, setKeywords] = useState("");
+    const [keyword, setKeyword] = useState("");
+    const [gender, setGender] = useState("");
+    const [brand, setBrand] = useState("");
 
     const { loading, filteredProductsCount, resultPerPage, productsCount } = useSelector((state) => state.productsState)
-
-    // const { keyword } = useParams();
-    // console.log("keyword", keyword);
-
     const priceHandler = (event, newPrice) => { setPrice(newPrice); };
-
     const setCurrentPageNo = (e) => { setCurrentPage(e); };
 
+    // console.log("gender", gender);
+    // console.log("brand", brand);
 
     const getData = () => {
         dispatch(getproductsLoading());
-        let link = `http://localhost:4500/products?page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+        let link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+        console.log("1", link);
 
         if (category) {
-            link = `http://localhost:4500/products?keyword=${keywords}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
+            link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
+            console.log("2", link);
+        }
+
+        if (gender) {
+            link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&gender=${gender}`;
+            console.log("3", link);
         }
 
         fetch(link)
@@ -67,7 +86,7 @@ export const Products = () => {
 
     useEffect(() => {
         getData()
-    }, [dispatch, keyword, currentPage, price, category])
+    }, [dispatch, currentPage, price, category, gender, brand])
 
     return <div>
         {loading ? (
@@ -96,6 +115,32 @@ export const Products = () => {
                                 onClick={() => setCategory(category)}
                             >
                                 {category}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <Typography>Gender</Typography>
+                    <ul className="categoryBox">
+                        {genders.map((gender) => (
+                            <li
+                                className="category-link"
+                                key={gender}
+                                onClick={() => setGender(gender)}
+                            >
+                                {gender}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <Typography>Brands</Typography>
+                    <ul className="categoryBox">
+                        {brands.map((brand) => (
+                            <li
+                                className="category-link"
+                                key={brand}
+                                onClick={() => setBrand(brand)}
+                            >
+                                {brand}
                             </li>
                         ))}
                     </ul>
