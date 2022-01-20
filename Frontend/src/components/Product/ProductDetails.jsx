@@ -13,8 +13,6 @@ export const ProductDetails = () => {
         dispatch(getProductsDetails(id))
     }, [dispatch, id])
 
-    // const { loading, product } = useSelector((state) => state.productsDetailState);
-
     const { product } = useSelector((state) => ({
         product: state.productsDetailState.product,
     }), function (prev, cur) {
@@ -27,20 +25,13 @@ export const ProductDetails = () => {
     });
 
     console.log("ProductDetails", product);
-    var objA = {};
-    var objB = new Object;
-    var objC = {};
 
-    objC.toString = function () { return "objC" };
+    console.log("ProductDetailsName", product.price);
 
-    alert(objA); // [object Object]
-    alert(objB); // [object Object]
-    alert(objC); // objC
-
-    // console.log("ProductDetailsName", product.name);
 
     return <div>
         <span>ProductDetails</span>
+        {/* {product.name} */}
 
     </div>;
 };

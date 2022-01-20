@@ -15,7 +15,7 @@ from "./actionType";
 export const getProducts = () => async(dispatch) =>{
       try{
        
-     dispatch({ type: ALL_PRODUCT_LOADING});
+    dispatch({ type: ALL_PRODUCT_LOADING});
     
     await fetch('http://localhost:4500/products/')
      .then((response) => response.json())
