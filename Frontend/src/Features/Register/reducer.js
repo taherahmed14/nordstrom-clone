@@ -6,7 +6,7 @@ export const reducer = (state = init, {type, payload}) => {
         case REGISTER_LOADING: 
             return {
                 ...state,
-                loading: true.valueOf,
+                loading: true,
             }
 
         case REGISTER_SUCCESS:

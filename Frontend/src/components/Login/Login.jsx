@@ -7,22 +7,90 @@ import { FormControl } from '@mui/material';
 import { Visibility } from '@mui/icons-material';
 import { VisibilityOff } from '@mui/icons-material';
 import "./Login.css";
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
+import { loginLoading, loginError, loginSuccess, loginUserLoading, loginUserSuccess, loginUserError } from '../../Features/Login/actions';
+import { useEffect, useState } from 'react';
 
 export const Login = () => {
 
-    const { loading, register, error } = useSelector((state) => ({
-        loading: state.registerState.loading,
+    const [form, setForm] = useState({});
+    const [user, setUser] = useState([]);
+
+    const { register } = useSelector((state) => ({
         register: state.registerState.register,
-        error: state.registerState.error,
     }));
 
+    const { users, userData } = useSelector((state) => ({
+        users: state.loginState.users,
+        userData: state.loginState.userData,
+    }));
+
+    useEffect(() => {
+        getUsers();
+    }, []);
+
     const dispatch = useDispatch();
+
+    function findUser() {
+        let userDet = users.filter(el => el.email === form.email);
+        setUser(userDet);
+    }
+
+    function getUsers () {
+        dispatch(loginLoading());
+        fetch("http://localhost:4500/register")
+        .then((d) => d.json())
+        .then((res) => {
+            dispatch(loginSuccess(res));
+        })
+        .catch((err) => {
+            dispatch(loginError());
+        })
+    }
+
+    function postLoginData() {
+        dispatch(loginUserLoading());
+        fetch("http://localhost:4500/login", {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        .then((d) => d.json())
+        .then((res) => {
+            dispatch(loginUserSuccess(res));
+        })
+        .catch((err) => { 
+            dispatch(loginUserError());
+        });
+    }
+
+    const handleSubmit = () => {
+        if(user.length === 0) {
+            alert("Invalid Email Id");
+        }
+        else if(user[0].password != form.password) {
+            // setpassword(false);
+            alert("Invalid password");
+        }
+        else{
+            postLoginData();
+        }
+    };
 
     const handleRegister = () => {
         dispatch(registerSuccess(false));
     }
+
+    const handleEmailChange = ({target: {name, value}}) => {
+        setForm({
+            ...form, 
+            [name] : value,
+        });
+        findUser();
+    };
 
     const [values, setValues] = React.useState({
         password: '',
@@ -30,34 +98,36 @@ export const Login = () => {
       });
 
     const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+        setValues({ ...values, [prop]: event.target.value });
+        setForm({ ...form, [prop]: event.target.value });
+        findUser();
     };
 
     const handleClickShowPassword = () => {
-    setValues({
-        ...values,
-        showPassword: !values.showPassword,
-    });
+        setValues({
+            ...values,
+            showPassword: !values.showPassword,
+        });
     };
 
     const handleMouseDownPassword = (event) => {
-    event.preventDefault();
+        event.preventDefault();
     };
 
-    // if(!register) {
-    //     return <Navigate to={"/register"} />
-    // }
+    if(userData.length === 1) {
+        return <Navigate to={"/"} />
+    }
 
     return (
-        <div>
+        <div className='form'>
     
-            <form className='form'>
                 <div className='staticTextOne'>Welcome back!</div>
                 <div className='staticTextTwo'>Sign in with the same info</div>
 
                 <FormControl size="medium" sx={{ m: 'auto', mt: '20px', mb: '10px', width: '350px' }} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password" sx={{ fontSize: '12px' }} >Email</InputLabel>
-                        <OutlinedInput label="Email" sx={{ fontSize: '12px' }} />
+                        <OutlinedInput label="Email" sx={{ fontSize: '12px' }} 
+                        name="email" onChange={handleEmailChange} />
                 </FormControl>
                 
                 <FormControl size="medium" sx={{ m: 'auto', mt: '10px', mb: '10px', width: '350px' }} variant="outlined">
@@ -90,13 +160,12 @@ export const Login = () => {
                     <label> Keep me signed in.</label>
                 </div>
                  
-                <button className='signInButton'>Sign in</button>
+                <button onClick={handleSubmit} className='signInButton'>Sign in</button>
 
                 <div className='staticTextTwo'>Dont have an account? 
                     <Link to={"/register"} onClick={handleRegister}>Register</Link>
                 </div>
 
-            </form>
         </div>
     )
 };
