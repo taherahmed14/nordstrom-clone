@@ -61,7 +61,7 @@ export const Products = () => {
 
   const getData = () => {
     dispatch(getproductsLoading())
-    let link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
+    let link = `http://localhost:4500/products`
 
     fetch(link)
       .then((response) => response.json())
@@ -508,3 +508,23 @@ export const Products = () => {
     </div>
   )
 }
+
+//  <div className={style2.naCat}>
+//<h5>{e.name.substring(0, 26)}</h5>
+//<p>{e.category}</p>
+//</div>
+
+// .naCat{
+//   text-align: left;
+// }
+// .naCat h5{
+//   font-size: 18px;
+//   font-weight: 600;
+//   color: #282c3f;
+//   padding: 0;
+//   margin: 0;
+// }
+// .naCat p{
+//   color: #686b78;
+//   font-size: 14px;
+//   font-weight: 300;
