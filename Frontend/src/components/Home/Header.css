@@ -1,0 +1,61 @@
+
+.banner {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+} 
+
+.bannerLink {
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.headerBox {
+    display: flex;
+}
+
+.headLogo {
+    width: 200px;
+    height: 30px;
+    padding: 15px;
+}
+
+.rightBox {
+    padding: 15px;
+    display: flex;
+    margin-left: auto;
+}
+
+.popoverBox {
+    display: flex;
+    height: 600px;
+    border-radius: 0px !important;
+    box-shadow: 0px !important;
+}
+
+.catBox {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-right: 150px;
+}
+
+.catergoriesHead {
+    font-size: 14px;
+    padding: 20px 0 10px 40px;
+}
+
+.categories {
+    text-decoration: none !important;
+    color: rgb(65, 62, 62) !important;
+    padding: 10px 1px 5px 0px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.categories:hover {
+    border-bottom: 1px solid black;
+}
+

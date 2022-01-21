@@ -8,13 +8,15 @@ import { OTPpage } from './components/OTP/OTPpage';
 import { OrderConfirm } from './components/OrderConfirm/Acknowldegment';
 import {Products} from './components/Product/Products';
 import {ProductDetails} from './components/Product/ProductDetails';
-import Header from './components/Home/Header';
+
 import Footer from './components/Home/Footer';
+import { Header } from './components/Home/Header';
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
@@ -27,7 +29,7 @@ function App() {
         <Route path="/products/:keyword" component={Products} />
         <Route exact path ="/product/:id" element ={<ProductDetails/>}> </Route>
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
