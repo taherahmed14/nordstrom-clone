@@ -33,58 +33,31 @@ export const ProductDetails = () => {
       })
   }
   const { loading } = useSelector((state) => state.productsDetailState)
-  console.log('Loading', loading)
 
-  return (
-    <div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <>
-          <div className={styles.bigcontainer}>
-            <div
-              style={{
-                display: 'flex',
-                gap: '2%',
-                marginTop: '2%',
+  return <div>
+    {loading ? (
+      <Loader />
+    ) : (
+      <div>
+        <span>ProductDetails</span>
+        <table>
+          <tbody>
+            <tr>
+              <td>{details.name}</td>
+              <td>{details.description}</td>
+              <td>{details.price}</td>
 
-                width: '61%',
-                flexWrap: 'wrap',
-                marginLeft: '1%',
-              }}
-            >
-              {details.images &&
-                details.images.map((image) => (
-                  <div
-                    style={{
-                      width: 380,
-                      cursor: 'crosshair',
-                      margin: '2%',
-                    }}
-                  >
-                    <img
-                      src={image}
-                      alt={details.name}
-                      height="690px"
-                      width="380px"
-                    ></img>
-                  </div>
-                ))}
-            </div>
-
-            <ProductDetail
-              name={details.name}
-              brand={details.brand}
-              category={details.category}
-              description={details.description}
-              price={details.price}
-              image={details.images}
-            />
-          </div>
-
-          <ProductInfo />
-        </>
-      )}
-    </div>
-  )
+              {details.images && details.images.map((image) => (
+                <td>
+                  <img src={image} alt={details.name}></img>
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    )
+    }
+  </div>
 }
+
