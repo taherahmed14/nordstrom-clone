@@ -19,7 +19,7 @@ export const ProductCard = ({ product }) => {
       <tbody>
         <tr>
           <td>
-            <Link to={`/products/${product._id} `}>{product.name}</Link>
+            <Link to={`/product/${product._id} `}>{product.name}</Link>
           </td>
           <td>{product.price}</td>
           <td>{product.category}</td>
