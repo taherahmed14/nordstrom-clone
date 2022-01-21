@@ -56,23 +56,10 @@ export const Products = () => {
   const priceHandler = (event, newPrice) => { setPrice(newPrice); };
   const setCurrentPageNo = (e) => { setCurrentPage(e); };
 
-  // console.log("gender", gender);
-  // console.log("brand", brand);
 
   const getData = () => {
     dispatch(getproductsLoading());
     let link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
-    console.log("1", link);
-
-    if (category) {
-      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
-      console.log("2", link);
-    }
-
-    if (gender) {
-      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&gender=${gender}`;
-      console.log("3", link);
-    }
 
     fetch(link)
       .then((response) => response.json())
