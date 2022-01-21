@@ -1,16 +1,15 @@
-import './App.css';
-import { Routes, Route } from "react-router-dom";
-import {Home} from './components/Home/Home';
-import { SendOTP } from './components/Email/Form';
-import { Login } from './components/Login/Login';
-import { Register } from './components/Login/Register';
-import { OTPpage } from './components/OTP/OTPpage';
-import { OrderConfirm } from './components/OrderConfirm/Acknowldegment';
-import {Products} from './components/Product/Products';
-import {ProductDetails} from './components/Product/ProductDetails';
-import { Checkout } from "./components/Checkoutandpayment/Checkout";
-import { Payment } from "./components/Checkoutandpayment/Payment";
-import { ProductCart } from "./components/ProductCart/ProductCart";
+import { Routes, Route } from 'react-router-dom'
+import { Home } from './components/Home/Home'
+import { SendOTP } from './components/Email/Form'
+import { Login } from './components/Login/Login'
+import { Register } from './components/Login/Register'
+import { OTPpage } from './components/OTP/OTPpage'
+import { OrderConfirm } from './components/OrderConfirm/Acknowldegment'
+import { Products } from './components/Product/Products'
+import { ProductDetails } from './components/Product/ProductDetails'
+import { Checkout } from './components/Checkoutandpayment/Checkout'
+import { Payment } from './components/Checkoutandpayment/Payment'
+import { ProductCart } from './components/ProductCart/ProductCart'
 
 function App() {
   return (
@@ -28,16 +27,16 @@ function App() {
         <Route path="/cart" element={<ProductCart />}></Route>
 
         <Route exact path="/products" element={<Products />}>
-          {" "}
+          {' '}
         </Route>
         <Route path="/products/:keyword" component={Products} />
         <Route exact path="/product/:id" element={<ProductDetails />}>
-          {" "}
+          {' '}
         </Route>
       </Routes>
       {/* <Footer /> */}
     </div>
-  );
+  )
 }
 
 export default App
