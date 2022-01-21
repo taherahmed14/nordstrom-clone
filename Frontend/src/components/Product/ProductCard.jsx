@@ -16,7 +16,7 @@ export const ProductCard = ({ product }) => {
   return (
     <div className={styles.prod}>
       <img src={product.images[0]} alt="" className={styles.image} />
-      <Link to={`/products/${product._id} `}>{product.name}</Link>
+      <Link to={`/product/${product._id} `}>{product.name}</Link>
     </div>
 
     // <table className="ProductCard">
