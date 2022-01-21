@@ -579,23 +579,3 @@ export const Products = () => {
     </div>
   )
 }
-
-//  <div className={style2.naCat}>
-//<h5>{e.name.substring(0, 26)}</h5>
-//<p>{e.category}</p>
-//</div>
-
-// .naCat{
-//   text-align: left;
-// }
-// .naCat h5{
-//   font-size: 18px;
-//   font-weight: 600;
-//   color: #282c3f;
-//   padding: 0;
-//   margin: 0;
-// }
-// .naCat p{
-//   color: #686b78;
-//   font-size: 14px;
-//   font-weight: 300;
