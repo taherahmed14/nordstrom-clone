@@ -48,22 +48,16 @@ export const ProductDetails = () => {
               <td>{details.price}</td>
 
               {details.images && details.images.map((image) => (
-                                <td>
-                                    <img src={image} alt={details.name}></img>
-                                </td>
-
-            <ProductDetail
-              name={details.name}
-              brand={details.brand}
-              category={details.category}
-              description={details.description}
-              price={details.price}
-              image={details.images}
-            />
-          </div>
-            <ProductInfo />
-      )}
-          </div>
-          )
+                <td>
+                  <img src={image} alt={details.name}></img>
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
       </div>
+    )
+    }
+  </div>
 }
+
