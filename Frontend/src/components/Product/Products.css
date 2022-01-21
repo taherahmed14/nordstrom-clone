@@ -81,7 +81,7 @@
   padding: 0%;
 }
 
-.category-link {
+.categorylink {
   list-style: none;
   color: rgba(0, 0, 0, 0.61);
   font: 400 0.8vmax 'Roboto';
@@ -90,11 +90,11 @@
   transition: all 0.5s;
 }
 
-.category-link:hover {
+.categorylink:hover {
   color: tomato;
 }
 
-.filterBox > fieldset {
+.filterBox>fieldset {
   border: 1px solid rgba(0, 0, 0, 0.329);
 }
 
