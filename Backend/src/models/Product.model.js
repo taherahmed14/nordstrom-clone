@@ -40,7 +40,7 @@ const productSchema = mongoose.Schema({
     type: String,
     required: [true, "Please Enter Gender"],
   },
-  campanydetails: {
+  companydetails: {
     type: String,
     required: [true, "Please Enter company Details"],
   },
@@ -50,11 +50,6 @@ const productSchema = mongoose.Schema({
     required: [true, "Please Enter size Info"],
   },
   
-  gender: {
-    type: String,
-    required: [true, "Please Enter Gender"],
-  },
-
 
   Stock: {
     type: Number,
