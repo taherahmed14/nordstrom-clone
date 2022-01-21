@@ -61,7 +61,7 @@ export const Products = () => {
 
   const getData = () => {
     dispatch(getproductsLoading())
-    let link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
+    let link = `http://localhost:4500/products`
 
     fetch(link)
       .then((response) => response.json())
