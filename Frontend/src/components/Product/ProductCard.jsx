@@ -4,6 +4,7 @@ import styles from './Product.module.css'
 import ReactStars from 'react-rating-stars-component'
 
 export const ProductCard = ({ product }) => {
+  console.log(product)
   const options = {
     edit: false,
     color: 'rgba(20,20,20,0.2)',
@@ -19,6 +20,7 @@ export const ProductCard = ({ product }) => {
           <td>
             <Link to={`/product/${product._id} `}>{product.name}</Link>
           </td>
+
           <td>{product.price}</td>
           <td>{product.category}</td>
           <td>{product.stock}</td>
@@ -31,5 +33,5 @@ export const ProductCard = ({ product }) => {
         </tr>
       </tbody>
     </table>
-  );
+  )
 }
