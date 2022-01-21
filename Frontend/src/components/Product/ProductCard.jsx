@@ -14,24 +14,29 @@ export const ProductCard = ({ product }) => {
     isHalf: true,
   }
   return (
-    <table className="ProductCard">
-      <tbody>
-        <tr>
-          <td>
-            <Link to={`/product/${product._id} `}>{product.name}</Link>
-          </td>
+    <div className={styles.prod}>
+      <img src={product.images[0]} alt="" className={styles.image} />
+      <Link to={`/products/${product._id} `}>{product.name}</Link>
+    </div>
 
-          <td>{product.price}</td>
-          <td>{product.category}</td>
-          <td>{product.stock}</td>
-          <td>{product.rating}</td>
-          <td>
-            {' '}
-            <ReactStars {...options} />{' '}
-          </td>
-          <td>{product.numOfReviews}</td>
-        </tr>
-      </tbody>
-    </table>
+    // <table className="ProductCard">
+    //   <tbody>
+    //     <tr>
+    //       <td>
+    //         <Link to={`/product/${product._id} `}>{product.name}</Link>
+    //       </td>
+
+    //       <td>{product.price}</td>
+    //       <td>{product.category}</td>
+    //       <td>{product.stock}</td>
+    //       <td>{product.rating}</td>
+    //       <td>
+    //         {' '}
+    //         <ReactStars {...options} />{' '}
+    //       </td>
+    //       <td>{product.numOfReviews}</td>
+    //     </tr>
+    //   </tbody>
+    // </table>
   )
 }
