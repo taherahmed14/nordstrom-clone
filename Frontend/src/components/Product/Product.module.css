@@ -1,35 +1,51 @@
+body {
+  font-family: Brandon Text, Arial, sans-serif;
+}
 .bigcontainer {
-  border: 1px solid red;
   display: flex;
   gap: 1%;
+  margin-bottom: 38%;
 }
 .leftw {
   width: 20%;
-  border: 1px solid black;
 }
 
-.rightw {
+.righty {
   width: 84%;
-  border: 1px solid green;
+}
+.rightw {
+  width: 100%;
+
   display: grid;
   grid-template-columns: repeat(4, 23%);
   gap: 2%;
 }
+.banner {
+  max-width: 98%;
 
+  margin-bottom: 2%;
+}
+.leftfunctionality {
+  width: 100%;
+}
 .prod {
   width: 100%;
-  border: 1px solid hotpink;
+
   /* display: grid;
   grid-template-columns: repeat(4, 23%);
   gap: 2%; */
 }
 .takes {
   width: 84%;
-  border: 1px solid green;
+
   display: grid;
   grid-template-rows: 21% 21% 21% 21%;
   gap: 2%;
 }
 .image {
   width: 100%;
+}
+
+.bannerimage {
+  max-width: 100%;
 }
