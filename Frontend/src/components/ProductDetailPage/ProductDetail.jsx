@@ -4,7 +4,9 @@ import styles from './ProductDetail.module.css'
 import MultipleSelectChip from './MultipleSelectChip'
 import LocalMallIcon from '@mui/icons-material/LocalMall'
 import { Button } from '@mui/material'
-const ProductDetail = () => {
+
+const ProductDetail = (props) => {
+  console.log(props.image)
   return (
     <>
       <div className={styles.bigcontainer}>
@@ -16,16 +18,11 @@ const ProductDetail = () => {
             readOnly
             style={{ color: '#000', fontSize: '20px' }}
           />
-          <p className={styles.prodn}>Ribbed Long Slipdress</p>
-          <p className={styles.skim}>SKIMS</p>
+          <p className={styles.prodn}>{props.name}</p>
+          <p className={styles.skim}>{props.brand}</p>
           <p className={styles.regular}>Regular & Plus</p>
-          <p className={styles.money}>INR 6,256.37</p>
-          <p className={styles.proddet}>
-            Price varies with currency exchange rates and may be different than
-            in store. A classic everyday style, this scoop-neck slipdress in
-            ribbed stretch modal from Kim Kardashian West's SKIMS hugs your body
-            with relaxed comfort.
-          </p>
+          <p className={styles.money}>INR {props.price}</p>
+          <p className={styles.proddet}>{props.description}</p>
           <MultipleSelectChip
             style={{ color: '#000', border: '1px solid #000' }}
           />
@@ -42,6 +39,24 @@ const ProductDetail = () => {
           <div className={styles.colorpicker}></div>
 
           <Button
+            onClick={() => {
+              const payload = {
+                brand: props.brand,
+                price: props.price,
+                name: props.name,
+
+                images: props.image,
+                description: props.description,
+              }
+
+              fetch('http://localhost:4500/cart', {
+                method: 'POST',
+                body: JSON.stringify(payload),
+                headers: {
+                  'content-type': 'application/json',
+                },
+              }).then(() => {})
+            }}
             sx={{
               backgroundColor: '#000',
               color: '#fff',
