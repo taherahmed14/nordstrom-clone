@@ -1,0 +1,102 @@
+#para{
+    text-align: left;
+}
+
+.boxes{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+   
+    width: 100%;
+}
+.box{
+    display: flex;
+}
+#borderbox{
+   
+
+    width: 85%;
+}
+
+.productimages{
+   max-width: 78px;
+   max-height: 120px;
+   margin-top: 3%;
+}
+#carddtl{
+    width: 300px;
+      margin-top: 2%;
+}
+.prodtitle > p{
+    padding: 0;
+    margin: 0;
+    
+}
+#subtotal{
+    margin-top: 2%;
+    margin-left: 38%;
+    
+}
+
+#payment{
+  text-align: left;
+  display:flex
+}
+
+.price{
+    margin-left: 30%;
+}
+.quantbox{
+    display: flex;
+    color:#1D68AC;
+    margin-left: 15%;
+}
+.quantity{
+    border: none;
+    height: 50px;
+    color: #1D68AC;
+    cursor: pointer;
+}
+#submitbtn{
+    margin-top: 5%;
+    background-color: black;
+    color: white;
+    height: 55px;
+    width: 375px;
+    cursor: pointer;
+}
+#main{
+    margin-left: 12%;
+}
+.prodtitle{
+    margin-top: 30px;
+    text-align: left;
+}
+.proddes > p{
+    padding: 0;
+    margin: 0;
+    
+}
+.proddes{
+    margin-top: 20px;
+    text-align: left;
+}
+.remove{
+    color: #1D68AC;
+    text-align: left;
+}
+.remove:hover{
+    color: #74A2CC;
+    cursor: pointer;
+}
+
+.proddtl{
+  width: 300px;
+  margin-left: 3%;
+}
+
+.deldetail{
+    display: flex;
+    text-align: left;
+
+}

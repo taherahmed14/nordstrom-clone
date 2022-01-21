@@ -1,0 +1,194 @@
+#box1{
+ width: 50%;
+ height: 40%;
+ background-color: white;
+ margin-left: auto;
+    border-top: 0.05px solid black;
+
+}
+
+#visa{
+    height: 20px;
+}
+
+#deladrs{
+    display: flex;
+ 
+}
+#delmtd{
+    margin-left: 50%;
+}
+.carddetails{
+    display: flex;
+}
+#carddetaill{
+    margin-left: 25%;
+}
+
+#ddd{
+    max-width: 60px;
+    height: fit-content;
+    background-color: blue;
+}
+
+#mainbox{
+    display: flex;
+    margin-top: 5%;
+ 
+}
+#headbox{
+    display: flex;
+}
+
+.exper1{
+    display: none;
+}
+#lowerhead2{
+    margin-right: 50%;
+    font-size: 15px;
+}
+#Promo{
+  color: #2A9DCC;
+  cursor: pointer;
+}
+#promoff{
+    display: none;
+}
+#promon{
+    display: contents;
+    display: flex;
+}
+
+.prodimg{
+    width: 20%;;
+    height: 5%;
+}
+#box2{
+ width: 25%;
+ height: 40%;
+ background-color: #F4F4F4;
+  margin-right: auto;
+   border-left: 0.5px solid black;
+}
+
+#inputinfo{
+    display: flex;
+    margin: auto;
+}
+#checkouthead{
+    margin-right: 5%;
+    margin-left: 2%;
+    font-size: 18px;
+}
+#langcheckout{
+    margin-left: 25%;
+    margin-top: 2%;
+    height: 20px;
+    border: none;
+ 
+}
+.dele{
+    margin-bottom: 30px;
+}
+
+.newcircle{
+    width: 20px;
+    color: white;
+    height: 20px;
+    background-color: black;
+    border-radius: 180px;
+    position: absolute;
+    margin-left: 20%;
+}
+.inputstyle{
+    width: 95%;
+    height: 35px;
+      margin-top:5%;
+    
+}
+.inputstylecard{
+    width: 61%;
+    height: 35px;
+      margin-top:3%;
+    
+}
+.inputstyle3{
+    width: 28%;
+    height: 30px;
+  
+    
+
+  margin-top:3%;
+}
+.inputstyle1{
+    width: 45%;
+    height: 47px;
+  
+    
+margin: 0 14px;
+  margin-top: 2%
+}
+#code{
+    margin-left: 4%;
+}
+.inputstyle2{
+    width: 50%;
+    height: 37px;
+  
+    
+margin-left: 6%;
+  margin-top:3%;
+}
+
+
+.promobtn{
+    background-color: #2A9DCC;
+    width: 100px;
+    border: none;
+    height: 43px ;
+  color: white;
+      margin-top:3%
+; 
+margin-left: 7%;
+}
+#ddd{
+    
+}
+
+
+#submitbtn{
+    margin-top: 5%;
+    background-color: #404040;
+    color: white;
+    height: 40px;
+    width: 40%;
+    cursor: pointer;
+}
+#submitbtn1{
+    margin-top: 5%;
+    background-color: black;
+    color: white;
+    height: 40px;
+    width: 80%;
+    cursor: pointer;
+}
+
+.proddess{
+    margin-left: 100px;
+}
+
+.prodinfo{
+    display: flex;
+    margin-bottom: 70px;
+    margin-left: 30px;
+    
+}
+.prodtext1{
+    font-size: 13px;
+    font-weight: bold;
+}
+.prodtext2{
+    font-size: 13px;
+    text-align: left;
+    
+}
