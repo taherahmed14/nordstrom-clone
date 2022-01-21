@@ -14,10 +14,13 @@ export const ProductCard = ({ product }) => {
     isHalf: true,
   }
   return (
-    <div className={styles.prod}>
-      <img src={product.images[0]} alt="" className={styles.image} />
-      <Link to={`/product/${product._id} `}>{product.name}</Link>
-    </div>
+    <>
+      <Link to={`/product/${product._id} `}>
+        <div className={styles.prod}>
+          <img src={product.images[0]} alt="" className={styles.image} />
+        </div>
+      </Link>
+    </>
 
     // <table className="ProductCard">
     //   <tbody>
