@@ -19,6 +19,13 @@ export const ProductCard = ({ product }) => {
         <div className={styles.prod}>
           <img src={product.images[0]} alt="" className={styles.image} />
         </div>
+
+        <div className={styles.nacat}>
+          <h5>{product.name.substring(0, 26)}</h5>
+          <p>{product.category}</p>
+          <p>INR {product.price}</p>
+          <p>RATING {product.ratings}</p>
+        </div>
       </Link>
     </>
 
