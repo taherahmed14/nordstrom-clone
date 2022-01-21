@@ -9,10 +9,6 @@ import { OrderConfirm } from './components/OrderConfirm/Acknowldegment';
 import {Products} from './components/Product/Products';
 import {ProductDetails} from './components/Product/ProductDetails';
 
-import Footer from './components/Home/Footer';
-import { Header } from './components/Home/Header';
-
-
 function App() {
   return (
     <div className="App">
@@ -25,13 +21,17 @@ function App() {
         <Route path="/OTP" element={<OTPpage />}></Route>
         <Route path="/orderConfirm" element={<OrderConfirm />}></Route>
 
-        <Route exact path ="/products" element ={<Products/>}> </Route>
+        <Route exact path="/products" element={<Products />}>
+          {' '}
+        </Route>
         <Route path="/products/:keyword" component={Products} />
-        <Route exact path ="/product/:id" element ={<ProductDetails/>}> </Route>
+        <Route exact path="/product/:id" element={<ProductDetails />}>
+          {' '}
+        </Route>
       </Routes>
       {/* <Footer /> */}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
