@@ -11,6 +11,10 @@ import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { loginLoading, loginError, loginSuccess, loginUserLoading, loginUserSuccess, loginUserError } from '../../Features/Login/actions';
 import { useEffect, useState } from 'react';
+import { Header } from '../Home/Header';
+import { Footer } from '../Home/Footer';
+// import "../Home/Header.css";
+
 
 export const Login = () => {
 
@@ -126,8 +130,9 @@ export const Login = () => {
     }
 
     return (
-        <div className='form'>
-    
+        <div>
+            <Header />
+            <div className='formLog'>
                 <div className='staticTextOne'>Welcome back!</div>
                 <div className='staticTextTwo'>Sign in with the same info</div>
 
@@ -173,6 +178,8 @@ export const Login = () => {
                     <Link to={"/register"} onClick={handleRegister}>Register</Link>
                 </div>
 
+            </div>
+            <Footer />
         </div>
     )
 };

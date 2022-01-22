@@ -2,7 +2,7 @@ import { Link, Navigate } from "react-router-dom";
 import "./Header.css";
 import {  TextField, IconButton } from '@mui/material';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { MouseOverPopover } from './Dashboard';
+import { SignInOption } from './Dashboard';
 import { CustomizedBadges } from './CartBadge';
 import { Navigation } from "./Navigation";
 
@@ -11,8 +11,11 @@ export const Header = () => {
         <div>
             <div className="banner">Shipping outside of the U.S. or Canada? 
                 <Link className="bannerLink" to="*"> Learn About International Shipping</Link></div>
+            
             <div className="headerBox">
-                <img className="headLogo" src="Nordstrom-logo.png" />
+                <Link to="/">
+                    <img className="headLogo" src="Nordstrom-logo.png" />
+                </Link>
                 <div className="rightBox">
                     <TextField
                         fullWidth
@@ -30,7 +33,7 @@ export const Header = () => {
                         }}
                     />
                     <div className="signIn">
-                        <MouseOverPopover />
+                        <SignInOption />
                     </div>
                     <div>
                         <CustomizedBadges />

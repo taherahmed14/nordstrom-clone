@@ -3,6 +3,8 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useState, useEffect } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -14,11 +16,31 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 }));
 
 export const CustomizedBadges = () => {
+
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    getCart();
+  }, []);
+
+  function getCart() {
+    fetch("http://localhost:4500/cart")
+      .then((response) => response.json())
+      .then((data) => {
+        setCount(data.length);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
-    <IconButton aria-label="cart">
-      <StyledBadge badgeContent={0} color="secondary" sx={{paddingRight: '10px'}}>
-        <ShoppingCartIcon />
-      </StyledBadge>
-    </IconButton>
+    <Link to={"/cart"}>
+      <IconButton aria-label="cart">
+        <StyledBadge badgeContent={count} color="secondary" sx={{paddingRight: '10px'}}>
+          <ShoppingCartIcon />
+        </StyledBadge>
+      </IconButton>
+    </Link>
   );
 }

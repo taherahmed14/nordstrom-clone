@@ -1,51 +1,118 @@
 import * as React from 'react';
-import Popover from '@mui/material/Popover';
-import Typography from '@mui/material/Typography';
+import { Popover } from '@mui/material';
+import { Link } from "react-router-dom";
+import { Button } from '@mui/material';
+import "./Header.css";
+import "./Dashboard.css";
+import { useState, useEffect } from 'react';
 
-export const MouseOverPopover = () => {
+export const SignInOption = () => {
+
+  // getUserData();
+
+  const [loginStatus, setLoginStatus] = useState(false);
+  const [user, setUser] = useState([]);
+  const [userName, setUserName] = useState("");
+
+  if(!loginStatus){
+    getUserData();
+  }
+
+  // useEffect(() => {
+  //   getUserData();
+  // }, []);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handlePopoverOpen = (event) => {
+  const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handlePopoverClose = () => {
+  const handleClose = () => {
     setAnchorEl(null);
   };
 
   const open = Boolean(anchorEl);
+  const id = open ? 'simple-popover' : undefined;
+
+  async function getUserData() {
+      const data = await fetch("http://localhost:4500/login")
+      .then((d) => d.json())
+      .then((res) => {
+        setUser(res);
+        if(user[user.length-1].status) {
+          setLoginStatus(true);
+          setUserName(user[user.length-1].first_name);
+        }
+      })
+  };
+
+  function updateLoginData() {
+    fetch(`http://localhost:4500/login/${user[user.length-1]._id}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+            status: false
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    .then((d) => d.json());
+}
+
+const handleLogout = () => {
+  updateLoginData();
+  getUserData();
+}
 
   return (
-    <div>
-      <Typography
-        aria-owns={open ? 'mouse-over-popover' : undefined}
-        aria-haspopup="true"
-        onMouseEnter={handlePopoverOpen}
-        onMouseLeave={handlePopoverClose}
-        sx={{color: 'gray', fontSize: '14px', padding: '10px', cursor: 'pointer' }}
-      >
-        Sign In
-      </Typography>
+    <div style={{display: 'flex'}}>
+
+      <Button aria-describedby={id} variant="contained" onClick={handleClick} 
+        sx={{background: "none", color: "rgb(65, 62, 62)", fontSize: "14px", borderRadius: "0",
+        boxShadow: "0", margin: "2px 10px 0px 10px", textTransform: "capitalize",
+        ":hover": {background: "white", boxShadow: "0"} }}>
+        {loginStatus ? `Hi ${userName}` : "Sign In"}
+      </Button>
+
       <Popover
-        id="mouse-over-popover"
-        sx={{
-          pointerEvents: 'none',
-        }}
+        id={id}
         open={open}
         anchorEl={anchorEl}
+        onClose={handleClose}
         anchorOrigin={{
           vertical: 'bottom',
-          horizontal: 'left',
+          horizontal: 'right',
         }}
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
+          vertical: "top",
+          horizontal: "center",
         }}
-        onClose={handlePopoverClose}
-        disableRestoreFocus
       >
-        <Typography sx={{ p: 1 }}>I use Popover.</Typography>
+        <div className='signInOptionsCont'>
+          <div>
+            <div className='yourAccount'>Your Account</div>
+            <div className='signInOptionsBox'>
+              {loginStatus ? "" : <Link to={"/login"} className='signInBtn'>Sign In | Create Account</Link>}
+              <Link to={""} className='optDum'>Purchases</Link>
+              <Link to={""} className='optDum'>Wishlist</Link>
+              <Link to={""} className='optDum'>Shipping address</Link>
+              <Link to={""} className='optDum'>Payment methods</Link>
+              <Link to={""} className='optDum'>Looks</Link>
+              <Link to={""} className='optDum'>Password & Personal Info</Link>
+              <Link to={""} className='optDum'>Email & Mail preferences</Link>
+              <Link to={""} className='optDum'>Stores & Events</Link>
+              <Link to={""} className='optDum'>Contact Us</Link>
+              <Link to={""} className='optDum'>Skirts</Link>
+              {loginStatus ? <Link to={"/login"} className='signInBtn' onClick={handleLogout}>Logout</Link> : ""}
+            </div>
+              
+          </div>
+
+        </div>
+        
       </Popover>
+
     </div>
   );
 }

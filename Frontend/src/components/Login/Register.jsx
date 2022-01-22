@@ -11,6 +11,8 @@ import { Link, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { registerError, registerLoading, registerSuccess } from '../../Features/Register/actions';
+import { Header } from '../Home/Header';
+import { Footer } from '../Home/Footer';
 
 export const Register = () => {
 
@@ -93,8 +95,9 @@ export const Register = () => {
     }
 
     return (
-        <div className='form'>
-    
+        <div>
+            <Header />
+            <div className='formReg'>
             
                 <div className='staticTextOne'>Create Account</div>
 
@@ -165,7 +168,8 @@ export const Register = () => {
                     <Link to={"/login"}>Login here</Link>
                 </div>
 
-            
+            </div>
+            <Footer />
         </div>
     )
 };
