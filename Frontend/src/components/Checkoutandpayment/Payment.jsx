@@ -15,7 +15,8 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import emailjs from '@emailjs/browser';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserError, getUserLoading, getUserSuccess } from '../../Features/Login/actions';
-
+import { Header } from "../Home/Header";
+import { Footer } from "../Home/Footer";
 export const Payment = () => {
 
   //To send Email
@@ -73,27 +74,27 @@ export const Payment = () => {
 
 
   const navigate = useNavigate();
-    const [products, setProducts] = useState([]);
-    var [pricetotal, setPrice] = useState(0);
-    var [finaltotal, setFinal] = useState(0);
-    useEffect(() => {
-      getData();
-    }, []);
+  const [products, setProducts] = useState([]);
+  var [pricetotal, setPrice] = useState(0);
+  var [finaltotal, setFinal] = useState(0);
+  useEffect(() => {
+    getData();
+  }, []);
 
-    const getData = () => {
-      fetch("http://localhost:4500/cart ")
-        .then((response) => response.json())
-        .then((data) => {
-          setProducts(data);
-          let totalprice = 0;
-          data.map((e) => (totalprice = e.price + totalprice));
-          setPrice(totalprice);
-          setFinal(2000 + 2000 + totalprice);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+  const getData = () => {
+    fetch("http://localhost:4500/cart ")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+        let totalprice = 0;
+        data.map((e) => (totalprice = e.price + totalprice));
+        setPrice(totalprice);
+        setFinal(2000 + 2000 + totalprice);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   const [data, setData] = useState({
     email: "",
@@ -115,10 +116,10 @@ export const Payment = () => {
 
   const handlepromoClick = () => {
     if (promonum == "MASAI") {
-   let d = pricetotal - 500;
-   let k = finaltotal - 500;
-   setPrice(d);
-   setFinal(k);
+      let d = pricetotal - 500;
+      let k = finaltotal - 500;
+      setPrice(d);
+      setFinal(k);
     }
   };
 
@@ -191,7 +192,7 @@ export const Payment = () => {
   };
   return (
     <div>
-      <h3>Nordstrom</h3>
+      <Header/>
       <div id="mainbox">
         <div id="box1">
           <div>
@@ -288,7 +289,8 @@ export const Payment = () => {
 
             <div id="delboxinfo">
               <p id="dele">
-                <div className="newcircle">1</div>Delivery
+                <div className="newcircle"> &nbsp;1</div>
+                <p id="newtitle">Delivery</p>
               </p>
               <hr />
               <div id="deladrs">
@@ -354,7 +356,7 @@ export const Payment = () => {
                         variant="outlined"
                         sx={{
                           mr: "18px",
-                          ml: "18px",
+                          ml: "0px",
                           mt: "5%",
                           mb: "10px",
                           width: "45%",
@@ -378,7 +380,7 @@ export const Payment = () => {
                         size="medium"
                         variant="outlined"
                         sx={{
-                          mr: "18px",
+                          mr: "0px",
                           ml: "18px",
                           mt: "5%",
                           mb: "10px",
@@ -429,7 +431,7 @@ export const Payment = () => {
                         variant="outlined"
                         sx={{
                           mr: "18px",
-                          ml: "18px",
+                          ml: "0px",
                           mt: "3%",
                           mb: "10px",
                           width: "45%",
@@ -451,7 +453,7 @@ export const Payment = () => {
                         size="medium"
                         variant="outlined"
                         sx={{
-                          mr: "18px",
+                          mr: "0px",
                           ml: "18px",
                           mt: "3%",
                           mb: "10px",
@@ -479,7 +481,7 @@ export const Payment = () => {
                         variant="outlined"
                         sx={{
                           mr: "18px",
-                          ml: "18px",
+                          ml: "0px",
                           mt: "2%",
                           mb: "10px",
                           width: "45%",
@@ -503,7 +505,7 @@ export const Payment = () => {
                         size="medium"
                         variant="outlined"
                         sx={{
-                          mr: "18px",
+                          mr: "0px",
                           ml: "18px",
                           mt: "2%",
                           mb: "10px",
@@ -529,7 +531,7 @@ export const Payment = () => {
                         variant="outlined"
                         sx={{
                           mr: "18px",
-                          ml: "18px",
+                          ml: "0px",
                           mt: "2%",
                           mb: "10px",
                           width: "45%",
@@ -860,14 +862,14 @@ export const Payment = () => {
                       </select>
                     </div>
 
-                    {/* <Link to="/payment" style={{ margin: "10px" }}> */}
-                    <input
-                      onClick={handleClick}
-                      id="submitbtn"
-                      type="submit"
-                      value="Update"
-                    />
-                    {/* </Link> */}
+                    <Link to="/payment" style={{ margin: "10px" }}>
+                      <input
+                        onClick={handleClick}
+                        id="submitbtn"
+                        type="submit"
+                        value="Update"
+                      />
+                    </Link>
                   </form>
                 </div>
                 <hr />
@@ -898,7 +900,7 @@ export const Payment = () => {
                     <div className="carddetails">
                       <input
                         className="inputstyle3"
-                        type="number"
+                        type="string"
                         placeholder="MM/YY"
                       />
 
@@ -944,44 +946,45 @@ export const Payment = () => {
 
         <div id="box2">
           <div>
-            <p>
-              <ShoppingCartOutlinedIcon /> Your Order
-            </p>
-            <Link to="/payment" style={{ margin: "10px" }}>
-              <button id="submitbtn1">Place Order</button>{" "}
-            </Link>
-            <div>
-              <p>Items:₹{pricetotal}</p>
-              <p>Shipping:₹{2000}</p>
-              <p>Duties & Taxes:₹{2000}</p>
-              <h3>Total ₹{finaltotal}</h3>
+            <div id="infod">
+              <p>
+                <ShoppingCartOutlinedIcon /> Your Order
+              </p>
+              <Link to="/payment" style={{ margin: "10px" }}>
+                <button onClick={handleClick} id="submitbtn1">
+                  Place Order
+                </button>{" "}
+              </Link>
+              <div>
+                <p>Items:₹{pricetotal}</p>
+                <p>Shipping:₹{2000}</p>
+                <p>Duties & Taxes:₹{2000}</p>
+                <h3>Total ₹{finaltotal}</h3>
+              </div>
+              <hr />
+              <p id="Promo" onClick={handlePromo}>
+                + Promo Code
+              </p>
+              <div id={promo}>
+                <input
+                  onChange={handlepromoChange}
+                  className="inputstyle2"
+                  type="text"
+                  placeholder="Enter Promo Code"
+                />
+                <button onClick={handlepromoClick} className="promobtn">
+                  Apply
+                </button>
+              </div>
+              <hr />
             </div>
-            <hr />
-            <p id="Promo" onClick={handlePromo}>
-              + Promo Code
-            </p>
-            <div id={promo}>
-              <input
-                onChange={handlepromoChange}
-                className="inputstyle2"
-                type="text"
-                placeholder="Enter Promo Code"
-              />
-              <button onClick={handlepromoClick} className="promobtn">
-                Apply
-              </button>
-            </div>
-            <hr />
             <div>
               {products.map((e) => (
                 <div className="prodinfo">
                   <img src={e.images[0]} alt="" className="prodimg" />
                   <div className="proddess">
                     <p className="prodtext1">{e.name}</p>
-                    <p className="prodtext2">
-                      Color: GREY <br /> Size: XX Small <br />
-                      Qty:1
-                    </p>
+              
                     <p className="prodtext2">₹{e.price}</p>
                   </div>
                 </div>
@@ -990,6 +993,7 @@ export const Payment = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };

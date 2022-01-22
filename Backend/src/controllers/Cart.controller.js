@@ -21,5 +21,16 @@ router.delete('/:id', async (req, res) => {
   const cart = await Cart.findByIdAndDelete(req.params.id)
   return res.send(cart)
 })
+router.patch("/:id", async (req, res) => {
+  try {
+    const login = await Cart.findByIdAndUpdate(req.params.id,req.body);
+    return res.status(201).send(login);
+  } catch (e) {
+    return res.status(500).json({
+      message: e.message,
+      status: "Failed",
+    });
+  }
+});
 
 module.exports = router

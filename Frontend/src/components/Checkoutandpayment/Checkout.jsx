@@ -10,33 +10,35 @@ import { InputLabel } from "@mui/material";
 import { FormControl } from "@mui/material";
 
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Header } from "../Home/Header";
+import { Footer } from "../Home/Footer";
 export const Checkout = () => {
   const navigate = useNavigate();
   const [promo, setPromo] = useState("promoff");
- 
-   const [promonum, setPromonum] = useState("");
-    const [products, setProducts] = useState([]);
-    var [pricetotal, setPrice] = useState(0);
-    var[finaltotal, setFinal] = useState(0);
-    useEffect(() => {
-      getData();
-    }, []);
 
-    const getData = () => {
-      fetch("http://localhost:4500/cart ")
-        .then((response) => response.json())
-        .then((data) => {
-          setProducts(data);
-          let totalprice = 0;
-          data.map((e) => (totalprice = e.price + totalprice));
-          setPrice(totalprice);
-          setFinal(2000 + 2000 + totalprice)
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-   
+  const [promonum, setPromonum] = useState("");
+  const [products, setProducts] = useState([]);
+  var [pricetotal, setPrice] = useState(0);
+  var [finaltotal, setFinal] = useState(0);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
+    fetch("http://localhost:4500/cart ")
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data);
+        let totalprice = 0;
+        data.map((e) => (totalprice = e.price + totalprice));
+        setPrice(totalprice);
+        setFinal(2000 + 2000 + totalprice);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const handlepromoChange = (e) => {
     setPromonum(e.target.value);
   };
@@ -44,10 +46,9 @@ export const Checkout = () => {
   const handlepromoClick = () => {
     if (promonum == "MASAI") {
       let d = pricetotal - 500;
-      let k = finaltotal - 500
+      let k = finaltotal - 500;
       setPrice(d);
-      setFinal(k)
-      
+      setFinal(k);
     }
   };
 
@@ -91,15 +92,15 @@ export const Checkout = () => {
   };
 
   const [productno, setProduct] = useState([]);
-//   useEffect(() => {
-//     fetch(`http://localhost:3002/todos`)
-//       .then((res) => {
-//         return res.json();
-//       })
-//       .then((res) => {
-//         setProduct(res);
-//       });
-//   }, []);
+  //   useEffect(() => {
+  //     fetch(`http://localhost:3002/todos`)
+  //       .then((res) => {
+  //         return res.json();
+  //       })
+  //       .then((res) => {
+  //         setProduct(res);
+  //       });
+  //   }, []);
 
   const handlePromo = () => {
     if (promo == "promoff") {
@@ -110,7 +111,7 @@ export const Checkout = () => {
   };
   return (
     <div>
-      <h3>Nordstrom</h3>
+      <Header/>
       <div id="mainbox">
         <div id="box1">
           <div>
@@ -205,7 +206,8 @@ export const Checkout = () => {
 
             <div id="delboxinfo">
               <p id="dele">
-                <div className="newcircle">1</div>Delivery
+                <div className="newcircle"> &nbsp;1</div>
+                <p id="newtitle">Delivery</p>
               </p>
               <form action="">
                 <FormControl
@@ -232,7 +234,7 @@ export const Checkout = () => {
                     variant="outlined"
                     sx={{
                       mr: "18px",
-                      ml: "18px",
+                      ml: "0px",
                       mt: "5%",
                       mb: "10px",
                       width: "45%",
@@ -256,7 +258,7 @@ export const Checkout = () => {
                     size="medium"
                     variant="outlined"
                     sx={{
-                      mr: "18px",
+                      mr: "0px",
                       ml: "18px",
                       mt: "5%",
                       mb: "10px",
@@ -307,7 +309,7 @@ export const Checkout = () => {
                     variant="outlined"
                     sx={{
                       mr: "18px",
-                      ml: "18px",
+                      ml: "0px",
                       mt: "3%",
                       mb: "10px",
                       width: "45%",
@@ -329,7 +331,7 @@ export const Checkout = () => {
                     size="medium"
                     variant="outlined"
                     sx={{
-                      mr: "18px",
+                      mr: "0px",
                       ml: "18px",
                       mt: "3%",
                       mb: "10px",
@@ -357,7 +359,7 @@ export const Checkout = () => {
                     variant="outlined"
                     sx={{
                       mr: "18px",
-                      ml: "18px",
+                      ml: "0px",
                       mt: "2%",
                       mb: "10px",
                       width: "45%",
@@ -381,7 +383,7 @@ export const Checkout = () => {
                     size="medium"
                     variant="outlined"
                     sx={{
-                      mr: "18px",
+                      mr: "0px",
                       ml: "18px",
                       mt: "2%",
                       mb: "10px",
@@ -407,7 +409,7 @@ export const Checkout = () => {
                     variant="outlined"
                     sx={{
                       mr: "18px",
-                      ml: "18px",
+                      ml: "0px",
                       mt: "2%",
                       mb: "10px",
                       width: "45%",
@@ -731,7 +733,7 @@ export const Checkout = () => {
               </form>
             </div>
             <hr />
-            <div>
+            <div id="newtag">
               <p className="dele">
                 <div className="newcircle">2</div>Payment
               </p>
@@ -741,46 +743,45 @@ export const Checkout = () => {
         </div>
         <div id="box2">
           <div>
-            <p>
-              <ShoppingCartOutlinedIcon /> Your Order
-            </p>
-            <Link to="/payment" style={{ margin: "10px" }}>
-              <button onClick={handleClick} id="submitbtn1">
-                Continue
-              </button>{" "}
-            </Link>
-            <div>
-              <p>Items:₹{pricetotal}</p>
-              <p>Shipping:₹{2000}</p>
-              <p>Duties & Taxes:₹{2000}</p>
-              <h3>Total ₹{finaltotal}</h3>
+            <div id="infod">
+              <p>
+                <ShoppingCartOutlinedIcon /> Your Order
+              </p>
+              <Link to="/payment" style={{ margin: "10px" }}>
+                <button onClick={handleClick} id="submitbtn1">
+                  Continue
+                </button>{" "}
+              </Link>
+              <div>
+                <p>Items:₹{pricetotal}</p>
+                <p>Shipping:₹{2000}</p>
+                <p>Duties & Taxes:₹{2000}</p>
+                <h3>Total ₹{finaltotal}</h3>
+              </div>
+              <hr />
+              <p id="Promo" onClick={handlePromo}>
+                + Promo Code
+              </p>
+              <div id={promo}>
+                <input
+                  onChange={handlepromoChange}
+                  className="inputstyle2"
+                  type="text"
+                  placeholder="Enter Promo Code"
+                />
+                <button onClick={handlepromoClick} className="promobtn">
+                  Apply
+                </button>
+              </div>
+              <hr />
             </div>
-            <hr />
-            <p id="Promo" onClick={handlePromo}>
-              + Promo Code
-            </p>
-            <div id={promo}>
-              <input
-                onChange={handlepromoChange}
-                className="inputstyle2"
-                type="text"
-                placeholder="Enter Promo Code"
-              />
-              <button onClick={handlepromoClick} className="promobtn">
-                Apply
-              </button>
-            </div>
-            <hr />
             <div>
               {products.map((e) => (
                 <div className="prodinfo">
                   <img src={e.images[0]} alt="" className="prodimg" />
                   <div className="proddess">
                     <p className="prodtext1">{e.name}</p>
-                    <p className="prodtext2">
-                      Color: GREY <br /> Size: XX Small <br />
-                      Qty:1
-                    </p>
+                   
                     <p className="prodtext2">₹{e.price}</p>
                   </div>
                 </div>
@@ -789,6 +790,7 @@ export const Checkout = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
