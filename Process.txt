@@ -18,6 +18,8 @@ npm i otp-input-react
 npm i thunk
 
 npm i react-rating-stars-component
+npm i react-hover-image
+npm i react-img-zoom
 
 npm i redux-thunk
 npm i redux-devtools-extension
