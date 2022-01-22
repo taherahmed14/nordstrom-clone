@@ -116,10 +116,17 @@ export const Checkout = () => {
         <div id="box1">
           <div>
             <div id="headbox">
-              <p id="checkouthead">
-                <LockOutlinedIcon /> Secure Checkout
-              </p>
-              <p id="checkoutp">powered by Borderfree</p>
+
+            <div className="box1">
+              <LockOutlinedIcon sx={{fontSize: '26px'}} /> 
+              <div className="box1Div1">
+                Secure Checkout
+              </div>
+              <div className="box1Div2">
+                powered by Borderfree
+              </div>
+            </div>
+
               <select id="langcheckout">
                 <option value="EN">English</option>
                 <option value="AF">Afrikaans</option>
@@ -196,19 +203,19 @@ export const Checkout = () => {
                 <option value="XH">Xhosa</option>
               </select>
             </div>
+
             <p id="lowerhead2">
               Already have a Borderfree account?
               <Link to="" style={{ margin: "10px" }}>
                 Click Here
               </Link>
             </p>
-            <hr />
 
-            <div id="delboxinfo">
-              <p id="dele">
+            <div className="delboxinfo">
+              <div className="delBox">
                 <div className="newcircle"> &nbsp;1</div>
-                <p id="newtitle">Delivery</p>
-              </p>
+                <div id="newtitle">Delivery</div>
+              </div>
               <form action="">
                 <FormControl
                   size="medium"
@@ -732,31 +739,47 @@ export const Checkout = () => {
                 </Link>
               </form>
             </div>
-            <hr />
+            
             <div id="newtag">
-              <p className="dele">
-                <div className="newcircle">2</div>Payment
-              </p>
-              <hr />
+              <div className="payBox">
+                <div className="newcircle2">2</div>
+                <div id="newtitle">Payment</div>
+              </div>
+              
             </div>
           </div>
         </div>
+        
         <div id="box2">
           <div>
             <div id="infod">
-              <p>
-                <ShoppingCartOutlinedIcon /> Your Order
-              </p>
+
+              <div className="box1">
+                <ShoppingCartOutlinedIcon sx={{fontSize: '26px', paddingLeft: '20px'}} /> 
+                <div className="box1Div1">
+                Your Order
+                </div>
+              </div>
+              
               <Link to="/payment" style={{ margin: "10px" }}>
                 <button onClick={handleClick} id="submitbtn1">
                   Continue
                 </button>{" "}
               </Link>
-              <div>
-                <p>Items:₹{pricetotal}</p>
-                <p>Shipping:₹{2000}</p>
-                <p>Duties & Taxes:₹{2000}</p>
-                <h3>Total ₹{finaltotal}</h3>
+
+              <div className="summaryDet">
+                <div className="summaryDetLeft">
+                  <div>Items</div>
+                  <div>Shipping</div>
+                  <div>Duties</div>
+                  <div>TOTAL</div>
+                </div>
+                <div className="summaryDetRight">
+                  <div>₹{pricetotal}</div>
+                  <div>₹{2000}</div>
+                  <div>₹{2000}</div>
+                  <div>₹{finaltotal}</div>
+                </div>
               </div>
               <hr />
               <p id="Promo" onClick={handlePromo}>

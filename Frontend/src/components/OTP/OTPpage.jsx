@@ -11,6 +11,8 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { Header } from "../Home/Header";
 import { Footer } from "../Home/Footer";
+import { LinearProgress } from "@mui/material";
+import { Stack } from "@mui/material";
 
 
 export const OTPpage = () => {
@@ -18,6 +20,12 @@ export const OTPpage = () => {
     const [userOTP, setuserOTP] = useState("");
     const [error, setError] = useState(false);
     const [status, setStatus] = useState(false);
+
+    const [loading, setLoading] = useState(true);
+
+    setTimeout(() => {
+        setLoading(false);
+    }, 3000);
 
     const form = useRef();
 
@@ -83,31 +91,43 @@ export const OTPpage = () => {
 
     return (
         <div>
-            <Header />
-            <div className='container'>
-                <div className='contentBox'>
-                    <div className='OTPHead1'>Enter verification code</div>
-                    <div className='OTPHead2'>
-                        We have just sent a verification code to your Email id.
+
+            { loading ?
+                <Stack sx={{ width: '30%', color: 'grey.500', mt: '300px', ml: '35%' }} spacing={2}>
+                    <LinearProgress color="secondary" />
+                    <LinearProgress color="success" />
+                    <LinearProgress color="inherit" />
+                </Stack>
+                :
+                <div>
+                    <Header />
+                    <div className='container'>
+                        <div className='contentBox'>
+                            <div className='OTPHead1'>Enter verification code</div>
+                            <div className='OTPHead2'>
+                                We have just sent a verification code to your Email id.
+                            </div>
+
+                            <OTPInput className='OTPinput' value={OTP} onChange={setOTP} autoFocus OTPLength={4} otpType="number" disabled={false} secure />
+                            {error ?
+                                <Alert severity="error" sx={{ fontSize: '12px', p: '2px', width: '200px', marginLeft: '10px' }}>Incorrect OTP</Alert>
+                                :
+                                ""
+                            }
+                            
+                            <div className='OTPHead2' style={{ cursor: "pointer" }}>Send the code again</div>
+
+                            <button className='verifyButton' onClick={handleOTPSubmit}>Verify</button>
+                        </div>
+
+                        <div className='imgBox'>
+                            <img src="OTP-Banner.png" />
+                        </div>
                     </div>
-
-                    <OTPInput className='OTPinput' value={OTP} onChange={setOTP} autoFocus OTPLength={4} otpType="number" disabled={false} secure />
-                    {error ?
-                        <Alert severity="error" sx={{ fontSize: '12px', p: '2px', width: '200px', marginLeft: '10px' }}>Incorrect OTP</Alert>
-                        :
-                        ""
-                    }
-                    
-                    <div className='OTPHead2' style={{ cursor: "pointer" }}>Send the code again</div>
-
-                    <button className='verifyButton' onClick={handleOTPSubmit}>Verify</button>
+                    <Footer />
                 </div>
+            }
 
-                <div className='imgBox'>
-                    <img src="OTP-Banner.png" />
-                </div>
-            </div>
-            <Footer />
         </div>
     )
 }

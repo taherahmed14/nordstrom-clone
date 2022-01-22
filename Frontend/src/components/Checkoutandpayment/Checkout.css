@@ -1,9 +1,9 @@
 #box1{
- width: 50%;
- height: 40%;
- background-color: white;
- margin-left: 15%;
-    border-top: 0.05px solid black;
+    width: 50%;
+    height: 40%;
+    background-color: white;
+    margin-left: 15%;
+    border-top: 1px solid rgb(230, 224, 224);
 
 }
 
@@ -13,6 +13,7 @@
 
 #deladrs{
     display: flex;
+    border-bottom: 1px solid rgb(230, 224, 224);
  
 }
 #delmtd{
@@ -20,6 +21,7 @@
 }
 .carddetails{
     display: flex;
+    margin-left: -165px;
 }
 #carddetaill{
     margin-left: 25%;
@@ -43,13 +45,23 @@
 .exper1{
     display: none;
 }
+
 #lowerhead2{
+    width: 100%;
     margin-right: 50%;
+    padding-top: 5px;
+    padding-left: 4px;
+    padding-bottom: 20px;
     font-size: 15px;
+    color: rgb(73, 71, 71);
+    border-bottom: 1px solid rgb(230, 224, 224);
 }
+
 #Promo{
   color: #2A9DCC;
   cursor: pointer;
+  text-align: left;
+  padding-left: 20px;
 }
 #promoff{
     display: none;
@@ -67,12 +79,9 @@
     text-align: center;
 }
 #box2{
- width: 25%;
- height: 40%;
- background-color: #F4F4F4;
-
-
-   
+    width: 23%;
+    height: 40%;
+    background-color: #F4F4F4;
 }
 
 #inputinfo{
@@ -85,40 +94,39 @@
     font-size: 18px;
 }
 #langcheckout{
-    margin-left: 25%;
+    margin-left: 40%;
     margin-top: 2%;
     height: 20px;
     border: none;
- 
+    width: 70px;
+    color: rgb(73, 71, 71);
 }
 .dele{
     margin-bottom: 30px;
     text-align: center;
 }
 #newtitle{
-    margin-left: 45%;
+    padding: 1px 0px 0px 10px;
 }
 #newtag{
     margin-top: 5%;
 }
-.newcircle{
-    width: 20px;
+.newcircle, .newcircle2{
     color: white;
-    height: 20px;
     background-color: black;
-    border-radius: 180px;
-    position: absolute;
-    margin-left: 19%;
+    padding: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
 }
 .inputstyle{
     width: 95%;
     height: 35px;
-      margin-top:5%;
-    
+    margin-top:5%;
 }
 .inputstylecard{
     width: 61%;
-    height: 35px;
+    height: 30px;
       margin-top:3%;
     
 }
@@ -161,9 +169,6 @@ margin-left: 6%;
 ; 
 margin-left: 7%;
 }
-#ddd{
-    
-}
 
 
 #submitbtn{
@@ -174,12 +179,18 @@ margin-left: 7%;
     color: white;
     margin: auto;
     margin-top: 30px;
+    margin-bottom: 20px;
     font-size: 12px;
     cursor: pointer;
     margin-left: 23%;
 }
+
+#submitbtn:hover, #submitbtn1 { 
+    opacity: 90%;
+}
+
 #submitbtn1{
-     width: 350px;
+     width: 320px;
     padding: 14px;
     background-color: black;
     border: none;
@@ -196,9 +207,7 @@ margin-left: 7%;
 
 .prodinfo{
     display: flex;
-    margin-bottom: 70px;
-    margin-left: 30px;
-    
+    padding: 10px;
 }
 .prodtext1{
     font-size: 13px;
@@ -206,6 +215,96 @@ margin-left: 7%;
 }
 .prodtext2{
     font-size: 13px;
+    text-align: left; 
+}
+
+.box1 {
+    display: flex;
+    padding-top: 10px;
+    font-size: 14px;
+    color: rgb(73, 71, 71);
+}
+
+.box1Div1 {
+    font-size: 22px;
+    padding-top: 2px;
+}
+
+.box1Div2 {
+    padding: 10px 0px 0px 10px;
+}
+
+.delBox, .payBox {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.delboxinfo {
+    border-bottom: 1px solid rgb(230, 224, 224);
+}
+
+.newcircle2 {
+    text-align: center;
+}
+
+.payBox {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(230, 224, 224);
+}
+
+.summaryDet {
+    display: flex;
+}
+
+.summaryDetLeft {
     text-align: left;
-    
+    width: 50%;
+    font-size: 14px;
+    color: rgb(73, 71, 71);
+}
+
+.summaryDetLeft div {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.summaryDetLeft div:nth-child(4) {
+    font-size: 18px;
+    color: black;
+    font-weight: 700;
+}
+
+.summaryDetRight {
+    text-align: right;
+    width: 50%;
+    font-size: 14px;
+    color: rgb(73, 71, 71);
+}
+
+.summaryDetRight div {
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.summaryDetRight div:nth-child(4) {
+    font-size: 18px;
+    color: black;
+    font-weight: 700;
+}
+
+.delAddDet {
+    font-size: 13px;
+    color: rgb(73, 71, 71);
+}
+
+.allCardDet {
+    padding-top: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(230, 224, 224);
+}
+
+.lastVal {
+    font-size: 13px;
+    color: rgb(73, 71, 71);
 }

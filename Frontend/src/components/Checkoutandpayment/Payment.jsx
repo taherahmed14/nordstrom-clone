@@ -197,12 +197,17 @@ export const Payment = () => {
         <div id="box1">
           <div>
             <div id="headbox">
-              <p id="checkouthead">
-                {" "}
-                <LockOutlinedIcon />
+
+            <div className="box1">
+              <LockOutlinedIcon sx={{fontSize: '26px'}} /> 
+              <div className="box1Div1">
                 Secure Checkout
-              </p>
-              <p id="checkoutp">powered by Borderfree</p>
+              </div>
+              <div className="box1Div2">
+                powered by Borderfree
+              </div>
+            </div>
+
               <select id="langcheckout">
                 <option value="EN">English</option>
                 <option value="AF">Afrikaans</option>
@@ -285,18 +290,18 @@ export const Payment = () => {
                 Click Here
               </Link>
             </p>
-            <hr />
 
             <div id="delboxinfo">
-              <p id="dele">
+
+              <div className="delBox">
                 <div className="newcircle"> &nbsp;1</div>
-                <p id="newtitle">Delivery</p>
-              </p>
-              <hr />
+                <div id="newtitle">Delivery</div>
+              </div>
+
               <div id="deladrs">
                 <div>
                   <h4>DELIVERY ADDRESS:</h4>
-                  <div id="addressinfo">
+                  <div id="addressinfo" className="delAddDet">
                     {address.address} <br /> {address.city} {address.postalcode}{" "}
                     <br /> {address.country}
                   </div>
@@ -304,20 +309,21 @@ export const Payment = () => {
 
                 <div id="delmtd">
                   <h4>DELIVERY METHOD:</h4>
-                  <p>
-                    STANDARD <br />
-                    NO ADDITIONAL IMPORT <br />
-                    CHARGES AT <br /> DELIVERY
-                    <br /> 11-21 BUSINESS DAYS
+                  <p className="delAddDet">
+                    Standard <br />
+                    No additional import <br />
+                    Charges at <br /> Delivery in
+                    <br /> 11-21 Business days
                   </p>
                 </div>
               </div>
             </div>
-            <hr />
+            
             <div>
-              <p className="dele">
-                <div className="newcircle">2</div>Payment
-              </p>
+              <div className="payBox">
+                <div className="newcircle2">2</div>
+                <div id="newtitle">Payment</div>
+              </div>
               <div>
                 <input
                   type="checkbox"
@@ -872,8 +878,8 @@ export const Payment = () => {
                     </Link>
                   </form>
                 </div>
-                <hr />
-                <div>
+                
+                <div className="allCardDet">
                   <input
                     type="radio"
                     id="html"
@@ -912,7 +918,7 @@ export const Payment = () => {
                       />
                     </div>
                   </div>
-                  <hr />
+                 
                 </div>
                 <div>
                   <input
@@ -933,34 +939,49 @@ export const Payment = () => {
             <div>
               <Link to="/OTP" style={{ margin: "10px" }}>
                 <button id="submitbtn" onClick={sendEmail} Click Here>
-                  Place Order {">"}
+                  Place Order
                 </button>
               </Link>
             </div>
-            <p>
+            <div className="lastVal">
               This order total is 100% guaranteed. There will be no additional
               charges due upon receipt.
-            </p>
+            </div>
           </div>
         </div>
 
         <div id="box2">
           <div>
             <div id="infod">
-              <p>
-                <ShoppingCartOutlinedIcon /> Your Order
-              </p>
+            
+              <div className="box1">
+                <ShoppingCartOutlinedIcon sx={{fontSize: '26px', paddingLeft: '20px'}} /> 
+                <div className="box1Div1">
+                Your Order
+                </div>
+              </div>
+
               <Link to="/payment" style={{ margin: "10px" }}>
                 <button onClick={handleClick} id="submitbtn1">
                   Place Order
                 </button>{" "}
               </Link>
-              <div>
-                <p>Items:₹{pricetotal}</p>
-                <p>Shipping:₹{2000}</p>
-                <p>Duties & Taxes:₹{2000}</p>
-                <h3>Total ₹{finaltotal}</h3>
+
+              <div className="summaryDet">
+                <div className="summaryDetLeft">
+                  <div>Items</div>
+                  <div>Shipping</div>
+                  <div>Duties</div>
+                  <div>TOTAL</div>
+                </div>
+                <div className="summaryDetRight">
+                  <div>₹{pricetotal}</div>
+                  <div>₹{2000}</div>
+                  <div>₹{2000}</div>
+                  <div>₹{finaltotal}</div>
+                </div>
               </div>
+
               <hr />
               <p id="Promo" onClick={handlePromo}>
                 + Promo Code
