@@ -77,9 +77,9 @@ export const OTPpage = () => {
             });
     };
 
-    // if(status) {
-    //     return <Navigate to={"/orderConfirm"} />
-    // }
+    if(status) {
+        return <Navigate to={"/orderConfirm"} />
+    }
 
     return (
         <div>
@@ -93,7 +93,7 @@ export const OTPpage = () => {
 
                     <OTPInput className='OTPinput' value={OTP} onChange={setOTP} autoFocus OTPLength={4} otpType="number" disabled={false} secure />
                     {error ?
-                        <Alert severity="error" sx={{ fontSize: '12px', p: '2px', width: '200px', marginLeft: '135px' }}>Incorrect OTP</Alert>
+                        <Alert severity="error" sx={{ fontSize: '12px', p: '2px', width: '200px', marginLeft: '10px' }}>Incorrect OTP</Alert>
                         :
                         ""
                     }

@@ -55,9 +55,9 @@ export const SendOTP = () => {
       });
   };
 
-  return (
-    <div>
-        <button onClick={sendEmail}>Send Email</button>
-    </div>
-  );
+  // return (
+  //   <div>
+  //       <button onClick={sendEmail}>Send Email</button>
+  //   </div>
+  // );
 };
