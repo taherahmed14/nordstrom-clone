@@ -2,7 +2,7 @@
  width: 50%;
  height: 40%;
  background-color: white;
- margin-left: auto;
+ margin-left: 15%;
     border-top: 0.05px solid black;
 
 }
@@ -63,12 +63,16 @@
     width: 20%;;
     height: 5%;
 }
+#infod{
+    text-align: center;
+}
 #box2{
  width: 25%;
  height: 40%;
  background-color: #F4F4F4;
-  margin-right: auto;
-   border-left: 0.5px solid black;
+
+
+   
 }
 
 #inputinfo{
@@ -89,8 +93,14 @@
 }
 .dele{
     margin-bottom: 30px;
+    text-align: center;
 }
-
+#newtitle{
+    margin-left: 45%;
+}
+#newtag{
+    margin-top: 5%;
+}
 .newcircle{
     width: 20px;
     color: white;
@@ -98,7 +108,7 @@
     background-color: black;
     border-radius: 180px;
     position: absolute;
-    margin-left: 20%;
+    margin-left: 19%;
 }
 .inputstyle{
     width: 95%;
@@ -157,24 +167,31 @@ margin-left: 7%;
 
 
 #submitbtn{
-    margin-top: 5%;
-    background-color: #404040;
+     width: 350px;
+    padding: 14px;
+    background-color: black;
+    border: none;
     color: white;
-    height: 40px;
-    width: 40%;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 12px;
     cursor: pointer;
+    margin-left: 23%;
 }
 #submitbtn1{
-    margin-top: 5%;
+     width: 350px;
+    padding: 14px;
     background-color: black;
+    border: none;
     color: white;
-    height: 40px;
-    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    font-size: 12px;
     cursor: pointer;
 }
 
 .proddess{
-    margin-left: 100px;
+    margin-left: 30px;
 }
 
 .prodinfo{
