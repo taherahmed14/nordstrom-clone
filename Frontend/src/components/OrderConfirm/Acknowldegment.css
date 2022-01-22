@@ -5,7 +5,9 @@
 }
 
 .sucLeftBox {
-    width: 50%; 
+    width: 40%; 
+    margin-left: 10%;
+    padding-left: 50px;
 }
 
 .sucRightBox {
@@ -15,11 +17,13 @@
 .titleOne {
     font-size: 40px;
     padding: 20px;
+    padding-left: 0px;
 }
 
 .titleTwo {
     font-size: 18px;
     padding: 20px;
+    padding-left: 0px;
     padding-bottom: 50px;
 }
 
@@ -33,4 +37,8 @@
     font-size: 12px;
     cursor: pointer;
     text-decoration: none;
+}
+
+.continueShpButton:hover {
+    opacity: 90%;
 }

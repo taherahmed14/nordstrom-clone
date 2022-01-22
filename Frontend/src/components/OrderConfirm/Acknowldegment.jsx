@@ -4,6 +4,8 @@ import "./Acknowldegment.css";
 import { LinearProgress } from "@mui/material";
 import { Stack } from "@mui/material";
 import { Link } from 'react-router-dom';
+import { Header } from '../Home/Header';
+import { Footer } from '../Home/Footer';
 
 export const OrderConfirm = () => {
     const [loading, setLoading] = useState(true);
@@ -21,19 +23,24 @@ export const OrderConfirm = () => {
                     <LinearProgress color="inherit" />
                 </Stack>
             :
-                <div className='successContainer'>
-                    <div className='sucLeftBox'>
-                        <CardGiftcardSharpIcon />
-                        <div className='titleOne'>Thank You!</div>
-                        <div className='titleTwo'>Order confirmation has been sent to your mail.</div>
-                        <Link to="*" className='continueShpButton'>Continue Shopping</Link>
-                    </div>
-                
-                    <div className='sucRightBox'>
+                <div>
+                    <Header />
+                    <div className='successContainer'>
+                        <div className='sucLeftBox'>
+                            <CardGiftcardSharpIcon />
+                            <div className='titleOne'>Thank You!</div>
+                            <div className='titleTwo'>Order confirmation has been sent to your mail.</div>
+                            <Link to="/" className='continueShpButton'>Continue Shopping</Link>
+                        </div>
+                    
+                        <div className='sucRightBox'>
 
+                        </div>
                     </div>
+                    <Footer />
                 </div>
             }
+            
         </div>
     )
 };

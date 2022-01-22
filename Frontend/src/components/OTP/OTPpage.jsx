@@ -9,6 +9,8 @@ import { Navigate } from 'react-router-dom';
 
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { Header } from "../Home/Header";
+import { Footer } from "../Home/Footer";
 
 
 export const OTPpage = () => {
@@ -80,28 +82,32 @@ export const OTPpage = () => {
     // }
 
     return (
-        <div className='container'>
-            <div className='contentBox'>
-                <div className='OTPHead1'>Enter verification code</div>
-                <div className='OTPHead2'>
-                    We have just sent a verification code to your Email id.
+        <div>
+            <Header />
+            <div className='container'>
+                <div className='contentBox'>
+                    <div className='OTPHead1'>Enter verification code</div>
+                    <div className='OTPHead2'>
+                        We have just sent a verification code to your Email id.
+                    </div>
+
+                    <OTPInput className='OTPinput' value={OTP} onChange={setOTP} autoFocus OTPLength={4} otpType="number" disabled={false} secure />
+                    {error ?
+                        <Alert severity="error" sx={{ fontSize: '12px', p: '2px', width: '200px', marginLeft: '135px' }}>Incorrect OTP</Alert>
+                        :
+                        ""
+                    }
+                    
+                    <div className='OTPHead2' style={{ cursor: "pointer" }}>Send the code again</div>
+
+                    <button className='verifyButton' onClick={handleOTPSubmit}>Verify</button>
                 </div>
 
-                <OTPInput className='OTPinput' value={OTP} onChange={setOTP} autoFocus OTPLength={4} otpType="number" disabled={false} secure />
-                {error ?
-                    <Alert severity="error" sx={{ fontSize: '12px', p: '2px', width: '200px', marginLeft: '135px' }}>Incorrect OTP</Alert>
-                    :
-                    ""
-                }
-                
-                <div className='OTPHead2' style={{ cursor: "pointer" }}>Send the code again</div>
-
-                <button className='verifyButton' onClick={handleOTPSubmit}>Verify</button>
+                <div className='imgBox'>
+                    <img src="OTP-Banner.png" />
+                </div>
             </div>
-
-            <div className='imgBox'>
-                <img src="OTP-Banner.png" />
-            </div>
+            <Footer />
         </div>
     )
 }
