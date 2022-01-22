@@ -70,7 +70,7 @@ export const ProductDetails = () => {
                   >
                     <Zoom
                       img={image}
-                      zoomScale={1.2}
+                      zoomScale={1.9}
                       width="100%"
                       height={690}
                       transitionTime={0.5}
