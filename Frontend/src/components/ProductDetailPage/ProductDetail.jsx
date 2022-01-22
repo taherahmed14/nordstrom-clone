@@ -6,7 +6,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall'
 import { Button } from '@mui/material'
 
 const ProductDetail = (props) => {
-  console.log(props.image)
+  // console.log(props.image)
   return (
     <>
       <div className={styles.bigcontainer}>
@@ -55,7 +55,7 @@ const ProductDetail = (props) => {
                 headers: {
                   'content-type': 'application/json',
                 },
-              }).then(() => {})
+              }).then(() => { })
             }}
             sx={{
               backgroundColor: '#000',

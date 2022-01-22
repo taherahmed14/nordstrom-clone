@@ -4,6 +4,7 @@ import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
+import Checkbox from '@mui/material/Checkbox';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import AddIcon from '@mui/icons-material/Add'
 import { ProductCard } from './ProductCard'
@@ -25,26 +26,27 @@ import {
 } from '../../Features/Product/action'
 
 const categories = [
-  'Accessories',
-  'Beauty %26 Grooming',
-  'Clothing',
-  'Home',
-  'Shoes',
+  'Joggers',
+  'Jeans',
+  'Jacket',
+  'Leggings',
+  'Sweaters',
+  'Tank',
+  'T-Shirt'
 ]
-
 const genders = ['Boys', 'Girls', 'Men', 'Unisex', 'Women']
-
-const brands = ['Adidas', 'Relaince', 'apple']
+const brands = ['ADIDAS', 'ALO', 'CANADA-GOOSE', 'NIKE', 'VUORI', 'ZELLA']
 
 export const Products = () => {
   const dispatch = useDispatch()
   const [products, setProducts] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [price, setPrice] = useState([0, 4000])
+  const [price, setPrice] = useState([0, 100000])
   const [category, setCategory] = useState('')
   const [keyword, setKeyword] = useState('')
   const [gender, setGender] = useState('')
   const [brand, setBrand] = useState('')
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
   const {
     loading,
@@ -61,7 +63,24 @@ export const Products = () => {
 
   const getData = () => {
     dispatch(getproductsLoading())
-    let link = `http://localhost:4500/products`
+
+    let link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
+    console.log("1", link);
+    if (category) {
+      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
+      console.log("2", link);
+    }
+
+    if (brand) {
+      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&brand=${brand}`;
+      console.log("3", link);
+    }
+
+    if (gender) {
+      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&gender=${gender}`;
+      console.log("4", link);
+    }
+
 
     fetch(link)
       .then((response) => response.json())
@@ -88,6 +107,8 @@ export const Products = () => {
         <div className={styles.bigcontainer}>
           <div className={styles.leftw}>
             <div className={styles.leftfunctionality}>
+
+              {/* {First Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -108,14 +129,24 @@ export const Products = () => {
                     Category
                   </Typography>
                 </AccordionSummary>
+
                 <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
+                  <ul className={styles.categoryBox}>
+                    {categories.map((category) => (
+                      <li
+                        className={styles.categorylink}
+                        key={category}
+                        onClick={() => setCategory(category)}
+                      >
+                        {category}
+                      </li>
+                    ))}
+                  </ul>
                 </AccordionDetails>
+
               </Accordion>
+
+              {/* {Second Accordion} */}
               <Accordion sx={{ width: '100%' }}>
                 <AccordionSummary
                   expandIcon={<AddIcon sx={{ width: '20px' }} />}
@@ -129,17 +160,25 @@ export const Products = () => {
                       fontSize: '0.8rem',
                     }}
                   >
-                    Size
+                    Gender
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
+                  <ul className={styles.categoryBox}>
+                    {genders.map((gender) => (
+                      <li
+                        className={styles.categorylink}
+                        key={gender}
+                        onClick={() => setGender(gender)}
+                      >
+                        {gender}
+                      </li>
+                    ))}
+                  </ul>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Third Accordion} */}
               <Accordion sx={{ width: '100%' }}>
                 <AccordionSummary
                   expandIcon={<AddIcon sx={{ width: '20px' }} />}
@@ -164,6 +203,8 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Fourth Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -185,13 +226,21 @@ export const Products = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
+                  <ul className={styles.categoryBox}>
+                    {brands.map((brand) => (
+                      <li
+                        className={styles.categorylink}
+                        key={brand}
+                        onClick={() => setBrand(brand)}
+                      >
+                        {brand}
+                      </li>
+                    ))}
+                  </ul>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Fifth Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -220,6 +269,8 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Sixth Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -248,6 +299,8 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Seventh Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -276,6 +329,8 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Eight Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -304,6 +359,8 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Ninth Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -325,13 +382,20 @@ export const Products = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
+                  <Slider
+                    value={price}
+                    onChange={priceHandler}
+                    valueLabelDisplay="on"
+                    aria-labelledby="range-slider"
+                    step={10}
+                    min={100}
+                    max={100000}
+                  />
+
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Tenth Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -360,6 +424,9 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
+              {/* {Eleventh Accordion} */}
+
               <Accordion
                 sx={{
                   width: '100%',
@@ -388,6 +455,8 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
+              {/* { Twelfth Accordion} */}
               <Accordion
                 sx={{
                   width: '100%',
@@ -416,7 +485,9 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
+
             </div>
+
             {/* <div className="filterBox">
               <Typography>Price</Typography>
               <Slider
