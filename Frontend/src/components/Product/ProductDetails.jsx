@@ -7,6 +7,9 @@ import {
   productsDetailsFail,
 } from '../../Features/Product/action'
 import { useParams } from 'react-router-dom'
+import { Header } from '../Home/Header'
+
+import { Footer } from '../Home/Footer'
 import Loader from '../Loader/Loader'
 import ProductInfo from '../ProductDetailPage/ProductInfo'
 import styles from '../ProductDetailPage/Product.module.css'
@@ -36,6 +39,8 @@ export const ProductDetails = () => {
 
   return (
     <div>
+      <Header />
+
       {loading ? (
         <Loader />
       ) : (
@@ -84,6 +89,7 @@ export const ProductDetails = () => {
           <ProductInfo />
         </>
       )}
+      <Footer />
     </div>
   )
 }

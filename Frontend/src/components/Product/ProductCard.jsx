@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './Product.module.css'
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom'
+import HoverImage from 'react-hover-image'
 export const ProductCard = ({ product }) => {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   const options = {
     edit: false,
@@ -15,14 +15,19 @@ export const ProductCard = ({ product }) => {
     isHalf: true,
   }
   const navigatePage = () => {
-    navigate(`/product/${product._id}`);
+    navigate(`/product/${product._id}`)
   }
 
   return (
-    <div onClick={navigatePage} >
+    <div onClick={navigatePage}>
       {/* <Link to={`/product/${product._id} `}> */}
       <div className={styles.prod}>
-        <img src={product.images[0]} alt="" className={styles.image} />
+        <HoverImage
+          src={product.images[0]}
+          hoverSrc={product.images[1]}
+          className={styles.image}
+        />
+        {/* <img src={product.images[0]} alt="" className={styles.image} /> */}
       </div>
 
       <div className={styles.nacat}>
@@ -55,5 +60,3 @@ export const ProductCard = ({ product }) => {
     // </table>
   )
 }
-
-

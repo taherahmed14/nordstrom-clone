@@ -4,7 +4,7 @@ import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
-import Checkbox from '@mui/material/Checkbox';
+import Checkbox from '@mui/material/Checkbox'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import AddIcon from '@mui/icons-material/Add'
 import { ProductCard } from './ProductCard'
@@ -14,6 +14,9 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ReactStars from 'react-rating-stars-component'
 import Loader from '../Loader/Loader'
+import { Header } from '../Home/Header'
+
+import { Footer } from '../Home/Footer'
 
 import Slider from '@material-ui/core/Slider'
 import { useParams } from 'react-router-dom'
@@ -32,7 +35,7 @@ const categories = [
   'Leggings',
   'Sweaters',
   'Tank',
-  'T-Shirt'
+  'T-Shirt',
 ]
 const genders = ['Boys', 'Girls', 'Men', 'Unisex', 'Women']
 const brands = ['ADIDAS', 'ALO', 'CANADA-GOOSE', 'NIKE', 'VUORI', 'ZELLA']
@@ -46,7 +49,7 @@ export const Products = () => {
   const [keyword, setKeyword] = useState('')
   const [gender, setGender] = useState('')
   const [brand, setBrand] = useState('')
-  const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  const label = { inputProps: { 'aria-label': 'Checkbox demo' } }
 
   const {
     loading,
@@ -64,23 +67,22 @@ export const Products = () => {
   const getData = () => {
     dispatch(getproductsLoading())
 
-    let link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`;
-    console.log("1", link);
+    let link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}`
+    console.log('1', link)
     if (category) {
-      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`;
-      console.log("2", link);
+      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&category=${category}`
+      console.log('2', link)
     }
 
     if (brand) {
-      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&brand=${brand}`;
-      console.log("3", link);
+      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&brand=${brand}`
+      console.log('3', link)
     }
 
     if (gender) {
-      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&gender=${gender}`;
-      console.log("4", link);
+      link = `http://localhost:4500/products?keyword=${keyword}&page=${currentPage}&price[gte]=${price[0]}&price[lte]=${price[1]}&gender=${gender}`
+      console.log('4', link)
     }
-
 
     fetch(link)
       .then((response) => response.json())
@@ -101,13 +103,13 @@ export const Products = () => {
 
   return (
     <div>
+      <Header />
       {loading ? (
         <Loader />
       ) : (
         <div className={styles.bigcontainer}>
           <div className={styles.leftw}>
             <div className={styles.leftfunctionality}>
-
               {/* {First Accordion} */}
               <Accordion
                 sx={{
@@ -143,7 +145,6 @@ export const Products = () => {
                     ))}
                   </ul>
                 </AccordionDetails>
-
               </Accordion>
 
               {/* {Second Accordion} */}
@@ -391,7 +392,6 @@ export const Products = () => {
                     min={100}
                     max={100000}
                   />
-
                 </AccordionDetails>
               </Accordion>
 
@@ -485,7 +485,6 @@ export const Products = () => {
                   </Typography>
                 </AccordionDetails>
               </Accordion>
-
             </div>
 
             {/* <div className="filterBox">
@@ -576,6 +575,8 @@ export const Products = () => {
           )} */}
         </div>
       )}
+
+      <Footer />
     </div>
   )
 }
