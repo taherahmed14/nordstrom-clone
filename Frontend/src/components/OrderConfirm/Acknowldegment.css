@@ -1,7 +1,6 @@
 .successContainer {
     margin-top: 100px;
     display: flex;
-    padding: 100px;
 }
 
 .sucLeftBox {
@@ -41,4 +40,16 @@
 
 .continueShpButton:hover {
     opacity: 90%;
+}
+
+.confirmProductsBox {
+    width: 100%;
+    display: flex;
+    padding: 10px;
+}
+
+.confirmProductsBox img {
+    height: 130px;
+    width: 130px;
+    object-fit: contain;
 }

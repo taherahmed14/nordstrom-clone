@@ -11,7 +11,7 @@ export const ProductCart = ()=>{
   const navigate = useNavigate()
 
    const [products, setProducts] = useState([]);
-var [pricetotal, setPrice] =useState(0)
+  var [pricetotal, setPrice] =useState(0)
    useEffect(() => {
      getData();
      
@@ -93,11 +93,14 @@ fetch(`http://localhost:4500/cart/${id}`, {
         <Header/>
         <div id="main">
           <div id="para">
-            <p>Shopping Bag</p>
-            <p>
-              <CardGiftcardIcon /> Choose gift options when you check out.
-            </p>
-            <p>Items in your bag are not on hold</p>
+            <div>Shopping Bag</div>
+            <div className="giftCardBox">
+              <CardGiftcardIcon sx={{fontSize: '18px'}} /> 
+              <div>
+                Choose gift options when you check out.
+              </div>
+            </div>
+            <div className="giftCardBox">Items in your bag are not on hold</div>
           </div>
 
           {/* e.images[0] */}
@@ -117,11 +120,16 @@ fetch(`http://localhost:4500/cart/${id}`, {
                       <p>{e.description}</p>
                     </div>
                     <div className="deldetail">
-                      <p>
-                        <LocalShippingOutlinedIcon /> &nbsp; Delivery <br />
-                        International orders usually arrive within 5–13 business
-                        days. We'll give you delivery dates in checkout.
-                      </p>
+                      <div>
+                          <LocalShippingOutlinedIcon />
+                          <div>
+                            Delivery
+                          </div>  
+                      </div>
+                      <div>  
+                          International orders usually arrive within 5–13 business
+                          days. We'll give you delivery dates in checkout.
+                      </div>
                     </div>
                     <p
                       onClick={() => {
@@ -133,7 +141,7 @@ fetch(`http://localhost:4500/cart/${id}`, {
                     </p>
                   </div>
                   <div className="quantbox">
-                    <p>Qty</p>
+                    <div>Qty</div>
                     <select name="" onChange={(r)=>{
                            change(r, e._id)
                     }} className="quantity">
@@ -238,7 +246,6 @@ fetch(`http://localhost:4500/cart/${id}`, {
                   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                   &nbsp; ₹{pricetotal}
                 </p>
-                <hr />
                 <button
                   onClick={() => {
                     navigate("/checkout");
