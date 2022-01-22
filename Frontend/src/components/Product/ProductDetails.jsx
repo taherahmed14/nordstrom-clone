@@ -8,12 +8,13 @@ import {
 } from '../../Features/Product/action'
 import { useParams } from 'react-router-dom'
 import { Header } from '../Home/Header'
-
+import Zoom from 'react-img-zoom'
 import { Footer } from '../Home/Footer'
 import Loader from '../Loader/Loader'
 import ProductInfo from '../ProductDetailPage/ProductInfo'
 import styles from '../ProductDetailPage/Product.module.css'
 import ProductDetail from '../ProductDetailPage/ProductDetail'
+import ReactImageZoom from 'react-image-zoom'
 export const ProductDetails = () => {
   const dispatch = useDispatch()
   const { id } = useParams()
@@ -64,14 +65,22 @@ export const ProductDetails = () => {
                       width: 380,
                       cursor: 'crosshair',
                       margin: '2%',
+                      overflow: 'hidden',
                     }}
                   >
-                    <img
+                    <Zoom
+                      img={image}
+                      zoomScale={1.2}
+                      width={380}
+                      height={690}
+                      transitionTime={0.5}
+                    />
+                    {/* <img
                       src={image}
                       alt={details.name}
                       height="690px"
                       width="380px"
-                    ></img>
+                    ></img> */}
                   </div>
                 ))}
             </div>
