@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
 
   try {
-    const resultPerPage = 12;
+    const resultPerPage = 24;
     const productsCount = await Product.countDocuments();
   
     const apiFeature = new ApiFeatures(Product.find(), req.query)
