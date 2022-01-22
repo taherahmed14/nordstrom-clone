@@ -133,17 +133,17 @@ export const Products = () => {
                 </AccordionSummary>
 
                 <AccordionDetails>
-                  <ul className={styles.categoryBox}>
+                  <div className={styles.categoryBox}>
                     {categories.map((category) => (
-                      <li
+                      <h5
                         className={styles.categorylink}
                         key={category}
                         onClick={() => setCategory(category)}
                       >
                         {category}
-                      </li>
+                      </h5>
                     ))}
-                  </ul>
+                  </div>
                 </AccordionDetails>
               </Accordion>
 
@@ -165,17 +165,17 @@ export const Products = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <ul className={styles.categoryBox}>
+                  <div className={styles.categoryBox}>
                     {genders.map((gender) => (
-                      <li
+                      <h5
                         className={styles.categorylink}
                         key={gender}
                         onClick={() => setGender(gender)}
                       >
                         {gender}
-                      </li>
+                      </h5>
                     ))}
-                  </ul>
+                  </div>
                 </AccordionDetails>
               </Accordion>
 
@@ -227,17 +227,17 @@ export const Products = () => {
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                  <ul className={styles.categoryBox}>
+                  <div className={styles.categoryBox}>
                     {brands.map((brand) => (
-                      <li
+                      <h5
                         className={styles.categorylink}
                         key={brand}
                         onClick={() => setBrand(brand)}
                       >
                         {brand}
-                      </li>
+                      </h5>
                     ))}
-                  </ul>
+                  </div>
                 </AccordionDetails>
               </Accordion>
 

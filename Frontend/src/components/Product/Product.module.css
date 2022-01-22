@@ -9,30 +9,28 @@ body {
 }
 
 .nacat {
-  text-align: left;
-  text-decoration: none;
-}
-
-.nacat {
   color: black;
   text-decoration: none;
   cursor: auto;
+  text-align: left;
+  margin-top: 2%;
 }
 
 .nacat h5 {
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: #282c3f;
   padding: 0;
-  margin: 0;
+  margin-top: 1%;
   text-decoration: none;
 }
 
 .nacat p {
   color: #686b78;
-  font-size: 14px;
+  font-size: 0.9rem;
   font-weight: 300;
   text-decoration: none;
+  margin-top: -1%;
 }
 
 .leftw {
@@ -90,14 +88,15 @@ body {
 
 .categoryBox {
   padding: 0%;
+  cursor: pointer;
 }
 
 .category-link {
   list-style: none;
   color: rgba(0, 0, 0, 0.61);
-  font: 400 0.8vmax 'Roboto';
+  font-size: 0.1rem;
   margin: 0.4vmax;
-  cursor: pointer;
+
   transition: all 0.5s;
 }
 
