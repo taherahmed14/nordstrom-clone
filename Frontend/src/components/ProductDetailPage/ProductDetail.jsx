@@ -26,7 +26,7 @@ const ProductDetail = (props) => {
           <MultipleSelectChip
             style={{ color: '#000', border: '1px solid #000' }}
           />
-          <div className={styles.colorpal}>
+          {/* <div className={styles.colorpal}>
             <MultipleSelectChip
               style={{
                 color: '#000',
@@ -34,7 +34,7 @@ const ProductDetail = (props) => {
                 marginTop: '10%',
               }}
             />
-          </div>
+          </div> */}
 
           <div className={styles.colorpicker}></div>
 
