@@ -1,16 +1,15 @@
-# [Groww](https://github.com/taherahmed14/Groww-Clone)
+# [Nordstrom](https://github.com/taherahmed14/nordstrom-clone)
 
 <table>
 <tr>
 <td>
-Founded in the year 2016, Groww is a flat fee discount brokerage firm now offering varied investment options in US stocks, fixed deposits and digital gold.
-All the services are enabled to the users through its mobile and web application which is a safe-to-use app for all investors. Apart from investing you can also avail of, eBooks educational content and blogs for stock market learning. It is due to its safe, easy use and user-interactive investing platform that as of November 2020 it had a user base of more than 90 lakh. 
+Nordstrom, Inc. is an American luxury department store chain. Founded in 1901 by John W. Nordstrom and Carl F. Wallin, it originated as a shoe store and evolved into a full-line retailer with departments for clothing, footwear, handbags, jewelry, accessories, cosmetics, and fragrances.
 
 </td>
 </tr>
 </table>
 
-## Groww Clone
+## Nordstrom Clone
 
 ### Sign up Page
 ![](https://github.com/taherahmed14/Groww-Clone/blob/main/Groww%20Clone%20Screenshots/Groww%20Signup.png)
@@ -39,32 +38,31 @@ Want to run in your local Machine? Great!
 
 To run, follow these steps:
 
-- Clone my repository `https://github.com/taherahmed14/Groww_Project`
+- Clone my repository `https://github.com/taherahmed14/nordstrom-clone`
 - Open the code in your VS code
-- Initialize the server `npm run server` on terminal
-- Run port 2500 on the browser `http://localhost:2500/home`
+- npm install to install all packages
+- Change the directory to backend (`cd backend`) to initialize the server and run `npm run server` on terminal
+- Change the directory to frontend (`cd frontend`) to initialize the react and run `npm start` on terminal
 - Then you can Navigate through other pages from Home page
 
 
 ## Built with 
 
-- HTML
-- CSS
-- Advance JavaScript (ES6)
+- React
 - node js
 - Express js
+- Advance JavaScript (ES6)
 - MongoDb
 - npm Packages
-- Chart.js
+- Material UI
 
 ## Creators
 
 - [@Taher Ahmed](https://github.com/taherahmed14)
-- [@Pankaj Raj](https://github.com/Ipankaj07)
-- [@Avinash](https://github.com/abhi103767)
-- [@Akshay Kumar](https://github.com/AkshaykumarG26)
-- [@Mayank Prajapati](https://github.com/Mayankpraja123)
-- [@Amar Jyoti Patra](https://github.com/amarjyotipatra)
+- [@Gaurav Maihuria](https://github.com/gaurav16-lang)
+- [@Shakib Jilani](https://github.com/shakib40)
+- [@Vivek Kumar](https://github.com/Vivek14kr)
+- [@Shahid Ansari](https://github.com/Shahid321fw11)
 
 
 
