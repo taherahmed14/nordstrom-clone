@@ -26,13 +26,9 @@ function App() {
         <Route path="/payment" element={<Payment />}></Route>
         <Route path="/cart" element={<ProductCart />}></Route>
 
-        <Route exact path="/products" element={<Products />}>
-          {' '}
-        </Route>
+        <Route exact path="/products" element={<Products />}></Route>
         <Route path="/products/:keyword" component={Products} />
-        <Route exact path="/product/:id" element={<ProductDetails />}>
-          {' '}
-        </Route>
+        <Route exact path="/product/:id" element={<ProductDetails />}></Route>
       </Routes>
       {/* <Footer /> */}
     </div>
