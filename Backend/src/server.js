@@ -24,12 +24,20 @@ const path = require("path");
 
 const port = process.env.PORT || 4500;
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('Frontend/public')); //check
-    app.get('*', function(req, res) {
-      req.sendFile(path.resolve(__dirname, 'Frontend/public', 'index.html'));
-    });
-  }
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, '../Frontend/build')))
+
+// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../Frontend/build/index.html'))
+})
+
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('Frontend/public')); //check
+//     app.get('*', function(req, res) {
+//       req.sendFile(path.resolve(__dirname, 'Frontend/public', 'index.html'));
+//     });
+//   }
 
 
 app.listen(port, async (req, res) => {
@@ -37,9 +45,3 @@ app.listen(port, async (req, res) => {
 
     console.log(`Listening on PORT ${port}`)
 })
-
-// app.listen(4500, async (req, res) => {
-//   await connect()
-
-//   console.log('Listening on PORT 4500')
-// })
