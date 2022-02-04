@@ -7,7 +7,7 @@ const app = require('./index');
 const path = require("path");
 
 // ** MIDDLEWARE ** //
-const whitelist = ['http://localhost:3000', 'http://localhost:4500', 'https://shrouded-journey-38552.heroku...']
+const whitelist = ['http://localhost:3000', 'http://localhost:4500', 'https://nordstrom-clone.herokuapp.com/']
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("** Origin of request " + origin)
