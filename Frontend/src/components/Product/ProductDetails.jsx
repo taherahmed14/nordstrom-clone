@@ -14,7 +14,7 @@ import Loader from '../Loader/Loader'
 import ProductInfo from '../ProductDetailPage/ProductInfo'
 import styles from '../ProductDetailPage/Product.module.css'
 import ProductDetail from '../ProductDetailPage/ProductDetail'
-import ReactImageZoom from 'react-image-zoom'
+
 export const ProductDetails = () => {
   const dispatch = useDispatch()
   const { id } = useParams()

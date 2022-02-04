@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import styles from './Product.module.css'
 import { useNavigate } from 'react-router-dom'
 import HoverImage from 'react-hover-image'

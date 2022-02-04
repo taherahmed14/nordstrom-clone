@@ -3,7 +3,6 @@ import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Footer } from "../Home/Footer";
 import { Header } from "../Home/Header";
 
