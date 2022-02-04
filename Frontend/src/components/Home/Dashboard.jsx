@@ -36,7 +36,7 @@ export const SignInOption = () => {
   const id = open ? 'simple-popover' : undefined;
 
   async function getUserData() {
-      const data = await fetch("http://localhost:4500/login")
+      const data = await fetch("/login")
       .then((d) => d.json())
       .then((res) => {
         setUser(res);
@@ -48,7 +48,7 @@ export const SignInOption = () => {
   };
 
   function updateLoginData() {
-    fetch(`http://localhost:4500/login/${user[user.length-1]._id}`, {
+    fetch(`/login/${user[user.length-1]._id}`, {
         method: "PATCH",
         body: JSON.stringify({
             status: false

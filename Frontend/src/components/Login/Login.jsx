@@ -44,7 +44,7 @@ export const Login = () => {
 
     function getUsers () {
         dispatch(loginLoading());
-        fetch("http://localhost:4500/register")
+        fetch("/register")
         .then((d) => d.json())
         .then((res) => {
             dispatch(loginSuccess(res));
@@ -56,7 +56,7 @@ export const Login = () => {
 
     function postLoginData() {
         dispatch(loginUserLoading());
-        fetch("http://localhost:4500/login", {
+        fetch("/login", {
             method: "POST",
             body: JSON.stringify({
                 email: form.email,

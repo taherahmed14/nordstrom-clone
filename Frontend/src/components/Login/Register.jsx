@@ -52,7 +52,7 @@ export const Register = () => {
         }
         else {
             dispatch(registerLoading());
-            fetch("http://localhost:4500/register", {
+            fetch("/register", {
             method: "POST",
             body: JSON.stringify(form),
             headers: {

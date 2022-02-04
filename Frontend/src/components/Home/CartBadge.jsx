@@ -24,7 +24,7 @@ export const CustomizedBadges = () => {
   }, []);
 
   function getCart() {
-    fetch("http://localhost:4500/cart")
+    fetch("/cart")
       .then((response) => response.json())
       .then((data) => {
         setCount(data.length);
