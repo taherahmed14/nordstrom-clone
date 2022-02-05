@@ -14,7 +14,7 @@ import { ProductCart } from './components/ProductCart/ProductCart'
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
+  
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
@@ -30,7 +30,7 @@ function App() {
         <Route path="/products/:keyword" component={Products} />
         <Route exact path="/product/:id" element={<ProductDetails />}></Route>
       </Routes>
-      {/* <Footer /> */}
+      
     </div>
   )
 }
