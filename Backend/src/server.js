@@ -1,8 +1,8 @@
 const connect = require('./configs/db');
 
-const express = require("express");
+// const express = require("express");
 
-const app = require('./index');
+const app = require('./');
 
 const path = require("path");
 
@@ -24,13 +24,13 @@ const path = require("path");
 
 const port = process.env.PORT || 4500;
 
-// Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../Frontend/build')))
+// // Serve static files from the React frontend app
+// app.use(express.static(path.join(__dirname, '../Frontend/build')))
 
-// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '../Frontend/public/index.html'))
-})
+// // AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname + '../Frontend/build/index.html'))
+// })
 
 // if (process.env.NODE_ENV === 'production') {
 //     app.use(express.static('Frontend/public')); //check
