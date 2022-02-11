@@ -26,6 +26,4 @@ router.patch("/:id", async(req, res) => {
   }
 });
 
-// //await Movie.findOneAndUpdate(query, update, { new: true, upsert: true, setDefaultsOnInsert: false }).lean();
-
 module.exports = router
