@@ -1,5 +1,4 @@
-// For Get Product controller 
-// it will help to search , filter and pagination
+
 class ApiFeatures {
     constructor(query, queryStr) {
       this.query = query;
@@ -25,13 +24,12 @@ class ApiFeatures {
   
       removeFields.forEach((key) => delete queryCopy[key]);
       
-    //   console.log(queryCopy);
 
       let queryStr = JSON.stringify(queryCopy);
       queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (key) => `$${key}`);
      
       this.query = this.query.find(JSON.parse(queryStr));
-      // console.log(queryStr);
+      
       return this;
     }
   

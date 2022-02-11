@@ -14,15 +14,11 @@ export const Home = () => {
         const id = setInterval(() => {
             setIndex((prev) => {
                 if(prev === 1){
-                    // clearInterval(id);
                     return 0;
                 }
                 return prev + 1;
             });
         }, 3000);
-        // return () => {
-        //     clearInterval(id);
-        // };
     }, []);
 
     return (

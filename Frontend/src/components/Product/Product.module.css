@@ -64,10 +64,6 @@ body {
 .prod {
   width: 100%;
   cursor: pointer;
-
-  /* display: grid;
-  grid-template-columns: repeat(4, 23%);
-  gap: 2%; */
 }
 
 .takes {

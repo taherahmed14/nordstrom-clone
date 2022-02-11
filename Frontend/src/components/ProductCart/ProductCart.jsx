@@ -30,7 +30,7 @@ export const ProductCart = ()=>{
          console.log(err);
        });
    }
-console.log("total:", pricetotal)
+
  const handleDelete = (id) => {
    fetch(`http://localhost:4500/cart/${id}`, {
      method: "DELETE",
@@ -46,13 +46,13 @@ console.log("total:", pricetotal)
   let [state, setState] = useState({})
 
 function change(r, id) {
-  console.log(r.target.value, id)
+  
   let k= r.target.value
 
 let todoItem = products.find((e) => {
   return e._id === id;
 });
-console.log("mil gya", todoItem.price)
+
 if (k == 1) {
   todoItem.price = 0
   todoItem.price = 1 * todoItem.price;
@@ -77,7 +77,7 @@ fetch(`http://localhost:4500/cart/${id}`, {
     return res.json();
   })
   .then((r) => {
-    // console.log(r);
+    
 
     getData();
   })
@@ -102,9 +102,9 @@ fetch(`http://localhost:4500/cart/${id}`, {
             <div className="giftCardBox">Items in your bag are not on hold</div>
           </div>
 
-          {/* e.images[0] */}
+         
           <div id="borderbox">
-            {/* from here we have to implement map andusing that we have to create order boxes */}
+            
             <div className="boxes">
               {products.map((e, i) => (
                 <div className="box" key={i}>

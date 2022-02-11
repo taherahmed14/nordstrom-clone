@@ -75,12 +75,7 @@ export const ProductDetails = () => {
                       height={690}
                       transitionTime={0.5}
                     />
-                    {/* <img
-                      src={image}
-                      alt={details.name}
-                      height="690px"
-                      width="380px"
-                    ></img> */}
+                    
                   </div>
                 ))}
             </div>

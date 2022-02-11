@@ -19,7 +19,6 @@ import { Header } from "../Home/Header";
 import { Footer } from "../Home/Footer";
 export const Payment = () => {
 
-  //To send Email
   const form = useRef();
 
   const [mailDet, setMailDet] = useState({
@@ -70,7 +69,6 @@ export const Payment = () => {
       });
   };
 
-  // End of Email
 
 
   const navigate = useNavigate();

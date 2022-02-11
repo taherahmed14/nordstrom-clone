@@ -92,15 +92,6 @@ export const Checkout = () => {
   };
 
   const [productno, setProduct] = useState([]);
-  //   useEffect(() => {
-  //     fetch(`http://localhost:3002/todos`)
-  //       .then((res) => {
-  //         return res.json();
-  //       })
-  //       .then((res) => {
-  //         setProduct(res);
-  //       });
-  //   }, []);
 
   const handlePromo = () => {
     if (promo == "promoff") {

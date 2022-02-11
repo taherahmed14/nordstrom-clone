@@ -19,14 +19,14 @@ export const ProductCard = ({ product }) => {
 
   return (
     <div onClick={navigatePage}>
-      {/* <Link to={`/product/${product._id} `}> */}
+      
       <div className={styles.prod}>
         <HoverImage
           src={product.images[0]}
           hoverSrc={product.images[1]}
           className={styles.image}
         />
-        {/* <img src={product.images[0]} alt="" className={styles.image} /> */}
+       
       </div>
 
       <div className={styles.nacat}>
@@ -35,27 +35,8 @@ export const ProductCard = ({ product }) => {
         <p>INR {product.price}</p>
         <p>RATING {product.ratings}</p>
       </div>
-      {/* </Link> */}
+      
     </div>
 
-    // <table className="ProductCard">
-    //   <tbody>
-    //     <tr>
-    //       <td>
-    //         <Link to={`/product/${product._id} `}>{product.name}</Link>
-    //       </td>
-
-    //       <td>{product.price}</td>
-    //       <td>{product.category}</td>
-    //       <td>{product.stock}</td>
-    //       <td>{product.rating}</td>
-    //       <td>
-    //         {' '}
-    //         <ReactStars {...options} />{' '}
-    //       </td>
-    //       <td>{product.numOfReviews}</td>
-    //     </tr>
-    //   </tbody>
-    // </table>
   )
 }

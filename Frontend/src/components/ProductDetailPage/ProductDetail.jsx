@@ -6,7 +6,7 @@ import LocalMallIcon from '@mui/icons-material/LocalMall'
 import { Button } from '@mui/material'
 
 const ProductDetail = (props) => {
-  // console.log(props.image)
+ 
   return (
     <>
       <div className={styles.bigcontainer}>
@@ -26,15 +26,7 @@ const ProductDetail = (props) => {
           <MultipleSelectChip
             style={{ color: '#000', border: '1px solid #000' }}
           />
-          {/* <div className={styles.colorpal}>
-            <MultipleSelectChip
-              style={{
-                color: '#000',
-                border: '1px solid #000',
-                marginTop: '10%',
-              }}
-            />
-          </div> */}
+          
 
           <div className={styles.colorpicker}></div>
 

@@ -8,8 +8,6 @@ import { useState, useEffect } from 'react';
 
 export const SignInOption = () => {
 
-  // getUserData();
-
   const [loginStatus, setLoginStatus] = useState(false);
   const [user, setUser] = useState([]);
   const [userName, setUserName] = useState("");
@@ -18,9 +16,6 @@ export const SignInOption = () => {
     getUserData();
   }
 
-  // useEffect(() => {
-  //   getUserData();
-  // }, []);
 
   const [anchorEl, setAnchorEl] = React.useState(null);
 

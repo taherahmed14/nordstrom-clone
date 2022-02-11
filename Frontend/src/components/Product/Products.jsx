@@ -4,23 +4,20 @@ import Accordion from '@mui/material/Accordion'
 import AccordionSummary from '@mui/material/AccordionSummary'
 import AccordionDetails from '@mui/material/AccordionDetails'
 import Typography from '@mui/material/Typography'
-import Checkbox from '@mui/material/Checkbox'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+
 import AddIcon from '@mui/icons-material/Add'
 import { ProductCard } from './ProductCard'
 import styles from './Product.module.css'
-import { Link } from 'react-router-dom'
+
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import ReactStars from 'react-rating-stars-component'
+
 import Loader from '../Loader/Loader'
 import { Header } from '../Home/Header'
 
 import { Footer } from '../Home/Footer'
 
 import Slider from '@material-ui/core/Slider'
-import { useParams } from 'react-router-dom'
-import Pagination from 'react-js-pagination'
 
 import {
   getproductsLoading,
@@ -110,7 +107,7 @@ export const Products = () => {
         <div className={styles.bigcontainer}>
           <div className={styles.leftw}>
             <div className={styles.leftfunctionality}>
-              {/* {First Accordion} */}
+             
               <Accordion
                 sx={{
                   width: '100%',
@@ -147,7 +144,6 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Second Accordion} */}
               <Accordion sx={{ width: '100%' }}>
                 <AccordionSummary
                   expandIcon={<AddIcon sx={{ width: '20px' }} />}
@@ -179,7 +175,6 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Third Accordion} */}
               <Accordion sx={{ width: '100%' }}>
                 <AccordionSummary
                   expandIcon={<AddIcon sx={{ width: '20px' }} />}
@@ -205,7 +200,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Fourth Accordion} */}
+              
               <Accordion
                 sx={{
                   width: '100%',
@@ -241,7 +236,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Fifth Accordion} */}
+         
               <Accordion
                 sx={{
                   width: '100%',
@@ -271,7 +266,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Sixth Accordion} */}
+              
               <Accordion
                 sx={{
                   width: '100%',
@@ -301,7 +296,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Seventh Accordion} */}
+              
               <Accordion
                 sx={{
                   width: '100%',
@@ -331,7 +326,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Eight Accordion} */}
+              
               <Accordion
                 sx={{
                   width: '100%',
@@ -361,7 +356,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Ninth Accordion} */}
+              
               <Accordion
                 sx={{
                   width: '100%',
@@ -395,7 +390,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Tenth Accordion} */}
+              
               <Accordion
                 sx={{
                   width: '100%',
@@ -425,7 +420,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* {Eleventh Accordion} */}
+              
 
               <Accordion
                 sx={{
@@ -456,7 +451,7 @@ export const Products = () => {
                 </AccordionDetails>
               </Accordion>
 
-              {/* { Twelfth Accordion} */}
+              
               <Accordion
                 sx={{
                   width: '100%',
@@ -487,56 +482,6 @@ export const Products = () => {
               </Accordion>
             </div>
 
-            {/* <div className="filterBox">
-              <Typography>Price</Typography>
-              <Slider
-                value={price}
-                onChange={priceHandler}
-                valueLabelDisplay="auto"
-                aria-labelledby="range-slider"
-                min={1500}
-                max={3000}
-              />
-
-              <Typography>Product Type</Typography>
-              <ul className="categoryBox">
-                {categories.map((category) => (
-                  <li
-                    className="category-link"
-                    key={category}
-                    onClick={() => setCategory(category)}
-                  >
-                    {category}
-                  </li>
-                ))}
-              </ul>
-
-              <Typography>Gender</Typography>
-              <ul className="categoryBox">
-                {genders.map((gender) => (
-                  <li
-                    className="category-link"
-                    key={gender}
-                    onClick={() => setGender(gender)}
-                  >
-                    {gender}
-                  </li>
-                ))}
-              </ul>
-
-              <Typography>Brands</Typography>
-              <ul className="categoryBox">
-                {brands.map((brand) => (
-                  <li
-                    className="category-link"
-                    key={brand}
-                    onClick={() => setBrand(brand)}
-                  >
-                    {brand}
-                  </li>
-                ))}
-              </ul>
-            </div> */}
           </div>
 
           <div className={styles.righty}>
@@ -555,24 +500,6 @@ export const Products = () => {
             </div>
           </div>
 
-          {/* {resultPerPage < productsCount && (
-            <div className="paginationBox">
-              <Pagination
-                activePage={currentPage}
-                itemsCountPerPage={resultPerPage}
-                totalItemsCount={productsCount}
-                onChange={setCurrentPageNo}
-                nextPageText="Next"
-                prevPageText="Prev"
-                firstPageText="1st"
-                lastPageText="Last"
-                itemClass="page-item"
-                linkClass="page-link"
-                activeClass="pageItemActive"
-                activeLinkClass="pageLinkActive"
-              />
-            </div>
-          )} */}
         </div>
       )}
 

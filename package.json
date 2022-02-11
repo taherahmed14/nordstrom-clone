@@ -9,7 +9,7 @@
     "server": "nodemon ./Backend/src/server.js",
     "start" : "node ./Backend/src/server.js",
 
-    "heroku-postbuild": "cd Frontend && npm install && npm run build"
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",

@@ -54,10 +54,4 @@ export const SendOTP = () => {
           console.log(error.text);
       });
   };
-
-  // return (
-  //   <div>
-  //       <button onClick={sendEmail}>Send Email</button>
-  //   </div>
-  // );
 };

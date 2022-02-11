@@ -23,7 +23,6 @@ export const NavBeauty = () => {
   return (
     <div style={{display: 'flex'}}>
 
-      {/* Men */}
 
       <Button aria-describedby={id} variant="contained" onClick={handleClick} 
         sx={{background: "none", padding: "5px", color: "black", fontSize: "12px", borderRadius: "0",

@@ -13,7 +13,6 @@ import { loginLoading, loginError, loginSuccess, loginUserLoading, loginUserSucc
 import { useEffect, useState } from 'react';
 import { Header } from '../Home/Header';
 import { Footer } from '../Home/Footer';
-// import "../Home/Header.css";
 
 
 export const Login = () => {
@@ -82,7 +81,6 @@ export const Login = () => {
             alert("Invalid Email Id");
         }
         else if(user[0].password != form.password) {
-            // setpassword(false);
             alert("Invalid password");
         }
         else{

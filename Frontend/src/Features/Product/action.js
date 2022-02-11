@@ -1,4 +1,4 @@
-import axios from "axios"
+
 import { 
     ALL_PRODUCT_LOADING,
     ALL_PRODUCT_SUCCESS,

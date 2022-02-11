@@ -7,24 +7,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookOutlinedIcon from '@mui/icons-material/FacebookOutlined';
-// import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-
-// const theme = createTheme({
-//     components: {
-//       MuiIcon: {
-//         styleOverrides: {
-//           root: {
-//             boxSizing: 'content-box',
-//             // padding: 3,
-//             fontSize: '1.125rem',
-//             default: "#ffffff"
-//           },
-      
-//         },
-//       },
-//     },
-// });
 
 export const Footer = () => {
     return (

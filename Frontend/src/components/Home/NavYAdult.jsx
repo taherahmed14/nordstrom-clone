@@ -23,8 +23,6 @@ export const NavYAdults = () => {
   return (
     <div style={{display: 'flex'}}>
 
-      {/* Men */}
-
       <Button aria-describedby={id} variant="contained" onClick={handleClick} 
         sx={{background: "none", padding: "5px", color: "black", fontSize: "12px", borderRadius: "0",
         boxShadow: "0", margin: "0px 40px 0px 40px",
