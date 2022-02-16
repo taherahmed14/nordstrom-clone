@@ -1,0 +1,153 @@
+#para{
+    text-align: left;
+}
+
+#para div:nth-child(1) {
+    font-size: 22px;
+    margin-top: 20px;
+    color: rgb(73, 71, 71);
+}
+
+.giftCardBox {
+    display: flex;
+    padding-top: 10px;
+    font-size: 14px;
+    color: rgb(73, 71, 71);
+}
+
+.giftCardBox div {
+    padding: 1px 0px 0px 5px;
+}
+
+.boxes{
+    border-top: 1px solid rgb(230, 224, 224);
+    border-bottom: 1px solid rgb(230, 224, 224);
+    width: 100%;
+    margin-top: 20px;
+}
+.box{
+    display: flex;
+    font-size: 14px;
+    color: rgb(73, 71, 71);
+}
+#borderbox{
+   
+
+    width: 85%;
+}
+
+.productimages{
+   max-width: 78px;
+   max-height: 120px;
+   margin-top: 3%;
+}
+#carddtl{
+    width: 300px;
+    margin-top: 2%;
+}
+
+#carddtl p{
+    font-size: 14px;
+    color: rgb(73, 71, 71);
+}
+
+.prodtitle > p{
+    padding: 0;
+    margin: 0;
+    
+}
+#subtotal{
+    margin-top: 2%;
+    margin-left: 38%;
+}
+
+#subtotal p{
+    font-size: 14px;
+    color: rgb(73, 71, 71);
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(230, 224, 224);
+}
+
+#payment{
+  text-align: left;
+  display:flex
+}
+
+.price{
+    margin-left: 30%;
+}
+.quantbox{
+    display: flex;
+    color:#1D68AC;
+    margin-left: 15%;
+}
+
+.quantbox div:nth-child(1){
+    padding-top: 16px;
+}
+
+.quantity{
+    border: none;
+    height: 50px;
+    color: #1D68AC;
+    cursor: pointer;
+}
+#submitbtn4{
+    margin-top: 5%;
+    background-color: black;
+    color: white;
+    width: 375px;
+    cursor: pointer;
+    border: none;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+#submitbtn4:hover{
+    opacity: 90%;
+}
+
+#main{
+    margin-left: 12%;
+}
+.prodtitle{
+    margin-top: 30px;
+    text-align: left;
+}
+.proddes > p{
+    padding: 0;
+    margin: 0;
+    max-height: 70px;
+    overflow: hidden;
+}
+.proddes{
+    margin-top: 20px;
+    text-align: left;
+}
+.remove{
+    color: #1D68AC;
+    text-align: left;
+}
+.remove:hover{
+    color: #74A2CC;
+    cursor: pointer;
+}
+
+.proddtl{
+  width: 300px;
+  margin-left: 3%;
+}
+
+.deldetail{
+    text-align: left;
+    margin-top: 5px;
+    color: rgb(104, 101, 101);
+}
+
+.deldetail div:nth-child(1){
+    display: flex;
+}
+
+.deldetail div:nth-child(1) div{
+    padding: 3px 0px 0px 5px;
+}
