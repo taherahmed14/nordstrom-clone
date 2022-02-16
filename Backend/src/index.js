@@ -14,7 +14,7 @@ const productController = require('./controllers/product.controller');
 
 app.use('/register', registerController);
 app.use('/login', loginController);
-app.use('/products', productController);
+app.use('/products', productController)
 app.use('/cart', cartController);
 
 app.use("/", require("./controllers/noteRoute.controller"));
